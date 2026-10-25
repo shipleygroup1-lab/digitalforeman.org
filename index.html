@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Digital Foreman builds and manages websites for contractors and local service businesses on the Grand Strand, SC. Book a free consultation.">
+<title>Digital Foreman</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: job-site plan set. Concrete ground, navy "title block" bands, blueprint-blue spec labels. Single committed light look to match the logo. */
+:root{
+  --concrete:#E3E5E7;
+  --slab:#F2F3F4;
+  --navy:#0E2A4F;
+  --navy-2:#173A66;
+  --blue:#1F7AD1;
+  --ink:#1B2430;
+  --muted:#4F5B69;
+  --line:#C5CBD2;
+  --on-navy:#E9EEF5;
+  --display:"Archivo","Arial Black",system-ui,sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--concrete);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--navy)}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);color:var(--navy);text-wrap:balance;line-height:1.08;margin:0}
+p{margin:0}
+a{color:var(--blue)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.tag{font-family:var(--mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+
+/* nav */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--navy);color:var(--on-navy)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.brand{font-family:var(--display);font-weight:900;letter-spacing:.04em;font-size:1.05rem;color:#fff;text-decoration:none}
+.brand span{color:#5FA8EC}
+nav{display:flex;gap:22px;align-items:center}
+nav a{color:var(--on-navy);text-decoration:none;font-weight:600;font-size:.95rem}
+nav a:hover{color:#fff}
+.btn{display:inline-block;font-family:var(--display);font-weight:800;text-decoration:none;border-radius:4px;padding:12px 20px;letter-spacing:.02em;border:0;cursor:pointer;font-size:1rem}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-blue:hover{background:#1868B5}
+.btn-ghost{background:transparent;color:var(--navy);box-shadow:inset 0 0 0 2px var(--navy)}
+.btn-ghost:hover{background:var(--navy);color:#fff}
+nav .btn{padding:9px 14px;font-size:.9rem}
+@media (max-width:640px){nav a:not(.btn){display:none}}
+
+/* hero */
+.hero-img{display:block;width:100%;max-width:100%;aspect-ratio:1024/559;object-fit:cover;background:var(--concrete)}
+.hero-copy{padding-block:40px 56px;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:end;border-bottom:1px solid var(--line)}
+.hero-copy h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:900;letter-spacing:-.01em}
+.hero-copy h1 em{font-style:normal;color:var(--blue)}
+.hero-side{display:grid;gap:20px;min-width:0}
+.hero-side p{color:var(--muted)}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+@media (max-width:800px){.hero-copy{grid-template-columns:1fr;gap:20px}}
+
+section{padding-block:72px}
+.sec-head{display:grid;gap:10px;margin-bottom:36px;max-width:640px}
+.sec-head h2{font-size:clamp(1.7rem,3.6vw,2.4rem);font-weight:800}
+.sec-head p{color:var(--muted)}
+
+/* scope list */
+.scope{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:2px solid var(--navy)}
+.scope div{padding:24px 24px 28px 0;border-bottom:1px solid var(--line);display:grid;gap:8px;align-content:start;min-width:0}
+.scope div+div{padding-left:24px;border-left:1px solid var(--line)}
+.scope div:nth-child(3n+1){padding-left:0;border-left:0}
+.scope h3{font-size:1.15rem;font-weight:800}
+.scope p{color:var(--muted);font-size:1rem}
+@media (max-width:800px){.scope{grid-template-columns:1fr}.scope div,.scope div+div{padding:20px 0;border-left:0}}
+
+/* pricing */
+.pricing{background:var(--slab);border-block:1px solid var(--line)}
+.setup{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px 24px;background:var(--navy);color:var(--on-navy);padding:22px 26px;border-radius:6px;margin-bottom:20px}
+.setup strong{font-family:var(--display);font-size:1.3rem;color:#fff}
+.setup .amt{font-family:var(--display);font-weight:900;font-size:2rem;color:#fff;font-variant-numeric:tabular-nums}
+.setup .amt small{font-size:.9rem;font-weight:600;color:#A9C4E4}
+.setup p{color:#C9D6E6;font-size:.98rem;flex-basis:100%}
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.plan{background:#fff;border:1px solid var(--line);border-radius:6px;padding:28px;display:grid;gap:16px;align-content:start;min-width:0}
+.plan.pick{border:2px solid var(--blue)}
+.plan-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.plan h3{font-size:1.5rem;font-weight:800}
+.price{font-family:var(--display);font-weight:900;font-size:2.4rem;color:var(--navy);font-variant-numeric:tabular-nums;line-height:1}
+.price small{font-size:1rem;font-weight:600;color:var(--muted)}
+.plan ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.plan li{padding-left:26px;position:relative}
+.plan li::before{content:"";position:absolute;left:0;top:.45em;width:12px;height:12px;border:2px solid var(--blue);border-radius:2px;background:linear-gradient(var(--blue),var(--blue)) center/4px 4px no-repeat}
+.plan .who{color:var(--muted);font-size:.98rem}
+.price .was{font-size:1.1rem;font-weight:700;color:var(--muted);margin-right:8px;vertical-align:middle;text-decoration-thickness:2px}
+.intro{display:grid;gap:4px;background:#E6F1FB;border:1px solid #A9CDEF;border-radius:6px;padding:16px 22px;margin-bottom:20px}
+.intro strong{font-family:var(--display);font-size:1.1rem;color:var(--navy)}
+.intro p{color:var(--ink);font-size:1rem}
+.intro-note{display:block;font-size:.92rem;color:var(--blue);font-weight:600;margin-top:4px}
+@media (max-width:700px){.plans{grid-template-columns:1fr}}
+.addon{margin-top:20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;background:#fff;border:1px dashed var(--blue);border-radius:6px;padding:24px 28px}
+.addon-copy{display:grid;gap:6px;flex:1 1 320px;min-width:0}
+.addon h3{font-size:1.3rem;font-weight:800}
+.addon p{color:var(--muted);font-size:1rem;max-width:60ch}
+.addon .amt{font-family:var(--display);font-weight:900;font-size:2rem;color:var(--navy);font-variant-numeric:tabular-nums}
+.addon .amt small{font-size:.9rem;font-weight:600;color:var(--muted)}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
+.step{display:grid;gap:10px;align-content:start;padding-top:18px;border-top:4px solid var(--navy);min-width:0}
+.step .tag::before{counter-increment:s;content:"Phase " counter(s) " "}
+.step h3{font-size:1.15rem;font-weight:800}
+.step p{color:var(--muted);font-size:1rem}
+@media (max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+
+/* about */
+.about{background:var(--navy);color:var(--on-navy)}
+.about .wrap{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:start}
+.about h2{color:#fff;font-size:clamp(1.7rem,3.6vw,2.4rem);font-weight:800}
+.about .tag{color:#7DB8F0}
+.about p{color:#C9D6E6;max-width:62ch}
+.stat{font-family:var(--display);font-weight:900;font-size:clamp(3.5rem,9vw,6rem);color:#fff;line-height:.9;font-variant-numeric:tabular-nums}
+.stat small{display:block;font-family:var(--mono);font-weight:500;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:#7DB8F0;margin-top:10px}
+.about-body{display:grid;gap:16px;min-width:0}
+@media (max-width:700px){.about .wrap{grid-template-columns:1fr;gap:20px}}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:40px}
+.contact-info{display:grid;gap:18px;align-content:start;min-width:0}
+.info-row{display:grid;gap:2px}
+.info-row .val{font-weight:600;color:var(--navy);font-size:1.1rem;overflow-wrap:anywhere}
+form{background:#fff;border:1px solid var(--line);border-radius:6px;padding:26px;display:grid;gap:16px;min-width:0}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{display:grid;gap:6px;font-weight:600;font-size:.95rem;color:var(--navy)}
+input,select,textarea{font:inherit;font-size:1rem;padding:11px 12px;border:1px solid var(--line);border-radius:4px;background:var(--slab);color:var(--ink);width:100%}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--blue);outline-offset:0;background:#fff}
+textarea{min-height:110px;resize:vertical}
+.note{font-size:.92rem;color:var(--muted)}
+.ok{background:#E6F1FB;border:1px solid #A9CDEF;color:var(--navy);padding:12px 14px;border-radius:4px;font-weight:600}
+@media (max-width:760px){.contact-grid{grid-template-columns:1fr}.row2{grid-template-columns:1fr}}
+
+footer{background:var(--navy);color:#A9BBD1;font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;padding-block:24px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top">DIGITAL <span>FOREMAN</span></a>
+    <nav aria-label="Main">
+      <a href="#scope">What you get</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#process">How it works</a>
+      <a class="btn btn-blue" href="#contact">Book Now</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <img class="hero-img" src="images/digital-foreman-logo.jpg" alt="Digital Foreman logo: a hard hat drawn as a website grid with a rising arrow, on a concrete wall">
+
+  <div class="wrap">
+    <div class="hero-copy">
+      <h1>Your website, run like a <em>job site.</em></h1>
+      <div class="hero-side">
+        <p>Digital Foreman builds and manages websites for contractors and local service businesses on the Grand Strand. We set it up, keep it running and make the changes, so your phone rings and you stay on the job.</p>
+        <div class="cta-row">
+          <a class="btn btn-blue" href="#contact">Book a free consultation</a>
+          <a class="btn btn-ghost" href="#pricing">See pricing</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="scope">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tag">Scope of work</span>
+        <h2>Everything a local business site needs. Nothing it doesn't.</h2>
+        <p>One flat setup price, one monthly plan. No contracts full of add-ons.</p>
+      </div>
+      <div class="scope">
+        <div><h3>Built around the phone call</h3><p>Tap-to-call on every page, a booking form that lands in your inbox, your license number where customers look for it, and an optional text-back for calls you miss.</p></div>
+        <div><h3>Your work, front and center</h3><p>Real photos of your real jobs. No stock pictures, no mockups passed off as finished work.</p></div>
+        <div><h3>Your domain, done right</h3><p>Domain connected, secure padlock on with and without "www", and business email forwarding set up and tested.</p></div>
+        <div><h3>Fast on a phone</h3><p>Most of your customers find you on their phone. Every page is checked on one before it goes live.</p></div>
+        <div><h3>Found on Google</h3><p>Your services and towns written into the pages, so people searching nearby can find you.</p></div>
+        <div><h3>Changes without the runaround</h3><p>New photos, new service, new hours. Send it over and it gets done. You never touch the back end.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="pricing">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tag">Pricing</span>
+        <h2>One setup. One monthly plan.</h2>
+        <p>Every site starts with the same build. Pick the monthly plan that fits how much you want handled.</p>
+      </div>
+
+      <div class="intro">
+        <strong>Introducing Digital Foreman</strong>
+        <p>Sign up by January 31, 2027 and get our introductory monthly rate for your first 6 months. After that, your plan goes to the regular price.</p>
+      </div>
+
+      <div class="setup">
+        <strong>Website setup</strong>
+        <span class="amt">$500 <small>one time</small></span>
+        <p>Design, build, domain connection, secure HTTPS, quote form, email forwarding and the full go-live checklist.</p>
+      </div>
+
+      <div class="plans">
+        <article class="plan">
+          <div class="plan-top"><h3>Basic</h3><span class="price"><s class="was">$79</s>$59<small>/mo</small></span></div>
+          <p class="who">For businesses that need a solid site that just works. <span class="intro-note">Intro rate for 6 months, then $79/mo.</span></p>
+          <ul>
+            <li>Hosting and secure HTTPS kept current</li>
+            <li>Quote form and email forwarding monitored</li>
+            <li>Small text and photo edits each month</li>
+            <li>Direct line to the person who built it</li>
+          </ul>
+        </article>
+        <article class="plan pick">
+          <div class="plan-top"><h3>Growth</h3><span class="price"><s class="was">$129</s>$99<small>/mo</small></span></div>
+          <p class="who">For businesses that want the site working harder for leads. <span class="intro-note">Intro rate for 6 months, then $129/mo.</span></p>
+          <ul>
+            <li>Everything in Basic</li>
+            <li>New project photos added every month</li>
+            <li>Service and town pages added as you grow</li>
+            <li>Monthly report on visits and leads</li>
+            <li>Priority turnaround on changes</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="addon">
+        <div class="addon-copy">
+          <span class="tag">Add-on</span>
+          <h3>Missed-call text-back</h3>
+          <p>Can't pick up on a ladder? Every missed call gets a text back in seconds from your own number, with a link to book on your website. No monthly fee.</p>
+        </div>
+        <span class="amt">$79 <small>one time</small></span>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tag">How it works</span>
+        <h2>Same way you'd run a job.</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="tag"></span><h3>Walkthrough</h3><p>A short call about your business, your services, your service area and what a good lead looks like.</p></div>
+        <div class="step"><span class="tag"></span><h3>Build</h3><p>You send your photos and logo. We build the site and send you a preview link to mark up.</p></div>
+        <div class="step"><span class="tag"></span><h3>Final inspection</h3><p>Domain, padlock, tap-to-call, quote form and email all tested on a phone before anything goes live.</p></div>
+        <div class="step"><span class="tag"></span><h3>Maintenance</h3><p>Your monthly plan keeps it running. Need a change? Text or email it and it gets handled.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="wrap">
+      <div class="stat">20+<small>Years in the trades</small></div>
+      <div class="about-body">
+        <span class="tag">Built by a contractor</span>
+        <h2>We know what a lead is worth.</h2>
+        <p>Digital Foreman was started by Tom Shipley, a South Carolina contractor with more than 20 years and hundreds of completed projects behind him. He builds sites the way he'd want his own: simple to use, quick to load, and set up to get the phone ringing.</p>
+        <p>No agency jargon, no year-long contracts. Just a site that works and someone who answers when you call.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="sec-head" style="margin-bottom:8px">
+            <span class="tag">Book Now</span>
+            <h2>Book your free consultation.</h2>
+            <p>Pick a day and time that works. We'll talk through your business, look at what you have now and give you a plan and a price for your website.</p>
+          </div>
+          <div class="info-row"><span class="tag">Email</span><span class="val">info@digitalforeman.org</span></div>
+          <div class="info-row"><span class="tag">Based in</span><span class="val">Myrtle Beach, South Carolina</span></div>
+          <div class="info-row"><span class="tag">Serving</span><span class="val">The Grand Strand and surrounding areas</span></div>
+        </div>
+
+        <form id="quote" action="https://formsubmit.co/info@digitalforeman.org" method="POST">
+          <input type="hidden" name="_subject" value="New Book Now request - Digital Foreman">
+          <input type="hidden" name="_next" value="https://digitalforeman.org/thanks.html">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+          <div class="row2">
+            <label for="f-name">Your name<input id="f-name" name="name" autocomplete="name" required></label>
+            <label for="f-biz">Business name<input id="f-biz" name="business" required></label>
+          </div>
+          <div class="row2">
+            <label for="f-phone">Phone<input id="f-phone" name="phone" type="tel" autocomplete="tel" required></label>
+            <label for="f-email">Email<input id="f-email" name="email" type="email" autocomplete="email"></label>
+          </div>
+          <div class="row2">
+            <label for="f-day">Preferred day<input id="f-day" name="day" type="date" required></label>
+            <label for="f-time">Preferred time
+              <select id="f-time" name="time">
+                <option>Morning (8–11 am)</option>
+                <option>Midday (11 am–2 pm)</option>
+                <option>Afternoon (2–5 pm)</option>
+                <option>Evening (5–7 pm)</option>
+              </select>
+            </label>
+          </div>
+          <label for="f-site">Do you have a website now?
+            <select id="f-site" name="current">
+              <option>No website yet</option>
+              <option>Yes, but it's outdated</option>
+              <option>Yes, I just want it managed</option>
+            </select>
+          </label>
+          <label for="f-msg">What kind of work do you do?<textarea id="f-msg" name="message" placeholder="Roofing, painting, landscaping, HVAC..."></textarea></label>
+          <button class="btn btn-blue" type="submit">Book my consultation</button>
+          <p class="note">Free, no obligation. We'll confirm your time by phone or email.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Digital Foreman · Myrtle Beach, SC</span>
+    <span>digitalforeman.org</span>
+  </div>
+</footer>
+
+
+</body>
+</html>
