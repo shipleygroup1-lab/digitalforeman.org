@@ -144,7 +144,21 @@ textarea{min-height:110px;resize:vertical}
 footer{background:var(--navy);color:#A9BBD1;font-size:.9rem}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;padding-block:24px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+/* Scroll animations (see reveal.js): sections glide in with a soft bounce */
+.reveal-on [data-reveal]{opacity:0;transform:translateY(36px);transition:opacity .6s ease-out,transform .8s cubic-bezier(.34,1.45,.64,1);will-change:opacity,transform}
+.reveal-on [data-reveal="left"]{transform:translateX(-48px)}
+.reveal-on [data-reveal="right"]{transform:translateX(48px)}
+.reveal-on [data-reveal="zoom"]{transform:scale(.9)}
+.reveal-on [data-reveal].revealed{opacity:1;transform:none}
 </style>
+<script>
+  // Turn on scroll animations only if supported and the visitor allows motion.
+  if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    document.documentElement.classList.add("reveal-on");
+    setTimeout(function () { if (!window.__revealReady) document.documentElement.classList.remove("reveal-on"); }, 3000);
+  }
+</script>
+<script src="reveal.js?v=1" defer></script>
 </head>
 <body>
 
@@ -165,8 +179,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
 
   <div class="wrap">
     <div class="hero-copy">
-      <h1>Your website, run like a <em>job site.</em></h1>
-      <div class="hero-side">
+      <h1 data-reveal="left">Your website, run like a <em>job site.</em></h1>
+      <div class="hero-side" data-reveal="right">
         <p>Digital Foreman builds and manages websites for contractors and local service businesses on the Grand Strand. We set it up, keep it running and make the changes, so your phone rings and you stay on the job.</p>
         <div class="cta-row">
           <a class="btn btn-blue" href="#contact">Book a free consultation</a>
@@ -178,43 +192,43 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
 
   <section id="scope">
     <div class="wrap">
-      <div class="sec-head">
+      <div class="sec-head" data-reveal>
         <span class="tag">Scope of work</span>
         <h2>Everything a local business site needs. Nothing it doesn't.</h2>
         <p>One flat setup price, one monthly plan. No contracts full of add-ons.</p>
       </div>
       <div class="scope">
-        <div><h3>Built around the phone call</h3><p>Tap-to-call on every page, a booking form that lands in your inbox, your license number where customers look for it, and an optional text-back for calls you miss.</p></div>
-        <div><h3>Your work, front and center</h3><p>Real photos of your real jobs. No stock pictures, no mockups passed off as finished work.</p></div>
-        <div><h3>Your domain, done right</h3><p>Domain connected, secure padlock on with and without "www", and business email forwarding set up and tested.</p></div>
-        <div><h3>Fast on a phone</h3><p>Most of your customers find you on their phone. Every page is checked on one before it goes live.</p></div>
-        <div><h3>Found on Google</h3><p>Your services and towns written into the pages, so people searching nearby can find you.</p></div>
-        <div><h3>Changes without the runaround</h3><p>New photos, new service, new hours. Send it over and it gets done. You never touch the back end.</p></div>
+        <div data-reveal><h3>Built around the phone call</h3><p>Tap-to-call on every page, a booking form that lands in your inbox, your license number where customers look for it, and an optional text-back for calls you miss.</p></div>
+        <div data-reveal><h3>Your work, front and center</h3><p>Real photos of your real jobs. No stock pictures, no mockups passed off as finished work.</p></div>
+        <div data-reveal><h3>Your domain, done right</h3><p>Domain connected, secure padlock on with and without "www", and business email forwarding set up and tested.</p></div>
+        <div data-reveal><h3>Fast on a phone</h3><p>Most of your customers find you on their phone. Every page is checked on one before it goes live.</p></div>
+        <div data-reveal><h3>Found on Google</h3><p>Your services and towns written into the pages, so people searching nearby can find you.</p></div>
+        <div data-reveal><h3>Changes without the runaround</h3><p>New photos, new service, new hours. Send it over and it gets done. You never touch the back end.</p></div>
       </div>
     </div>
   </section>
 
   <section id="pricing" class="pricing">
     <div class="wrap">
-      <div class="sec-head">
+      <div class="sec-head" data-reveal>
         <span class="tag">Pricing</span>
         <h2>One setup. One monthly plan.</h2>
         <p>Every site starts with the same build. Pick the monthly plan that fits how much you want handled.</p>
       </div>
 
-      <div class="intro">
+      <div class="intro" data-reveal>
         <strong>Introducing Digital Foreman</strong>
         <p>Sign up by January 31, 2027 and get our introductory monthly rate for your first 6 months. After that, your plan goes to the regular price.</p>
       </div>
 
-      <div class="setup">
+      <div class="setup" data-reveal>
         <strong>Website setup</strong>
         <span class="amt">$500 <small>one time</small></span>
         <p>Design, build, domain connection, secure HTTPS, quote form, email forwarding and the full go-live checklist.</p>
       </div>
 
       <div class="plans">
-        <article class="plan">
+        <article class="plan" data-reveal>
           <div class="plan-top"><h3>Basic</h3><span class="price"><s class="was">$79</s>$59<small>/mo</small></span></div>
           <p class="who">For businesses that need a solid site that just works. <span class="intro-note">Intro rate for 6 months, then $79/mo.</span></p>
           <ul>
@@ -225,7 +239,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
             <li>Direct line to the person who built it</li>
           </ul>
         </article>
-        <article class="plan pick">
+        <article class="plan pick" data-reveal>
           <div class="plan-top"><h3>Growth</h3><span class="price"><s class="was">$129</s>$99<small>/mo</small></span></div>
           <p class="who">For businesses that want the site working harder for leads. <span class="intro-note">Intro rate for 6 months, then $129/mo.</span></p>
           <ul>
@@ -238,7 +252,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
         </article>
       </div>
 
-      <div class="addon">
+      <div class="addon" data-reveal>
         <div class="addon-copy">
           <span class="tag">Add-on</span>
           <h3>Missed-call text-back</h3>
@@ -251,23 +265,23 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
 
   <section id="process">
     <div class="wrap">
-      <div class="sec-head">
+      <div class="sec-head" data-reveal>
         <span class="tag">How it works</span>
         <h2>Same way you'd run a job.</h2>
       </div>
       <div class="steps">
-        <div class="step"><span class="tag"></span><h3>Walkthrough</h3><p>A short call about your business, your services, your service area and what a good lead looks like.</p></div>
-        <div class="step"><span class="tag"></span><h3>Build</h3><p>You send your photos and logo. We build the site and send you a preview link to mark up.</p></div>
-        <div class="step"><span class="tag"></span><h3>Final inspection</h3><p>Domain, padlock, tap-to-call, quote form and email all tested on a phone before anything goes live.</p></div>
-        <div class="step"><span class="tag"></span><h3>Maintenance</h3><p>Your monthly plan keeps it running. Need a change? Text or email it and it gets handled.</p></div>
+        <div class="step" data-reveal><span class="tag"></span><h3>Walkthrough</h3><p>A short call about your business, your services, your service area and what a good lead looks like.</p></div>
+        <div class="step" data-reveal><span class="tag"></span><h3>Build</h3><p>You send your photos and logo. We build the site and send you a preview link to mark up.</p></div>
+        <div class="step" data-reveal><span class="tag"></span><h3>Final inspection</h3><p>Domain, padlock, tap-to-call, quote form and email all tested on a phone before anything goes live.</p></div>
+        <div class="step" data-reveal><span class="tag"></span><h3>Maintenance</h3><p>Your monthly plan keeps it running. Need a change? Text or email it and it gets handled.</p></div>
       </div>
     </div>
   </section>
 
   <section class="about">
     <div class="wrap">
-      <div class="stat">20+<small>Years in the trades</small></div>
-      <div class="about-body">
+      <div class="stat" data-reveal="left">20+<small>Years in the trades</small></div>
+      <div class="about-body" data-reveal="right">
         <span class="tag">Built by a contractor</span>
         <h2>We know what a lead is worth.</h2>
         <p>Digital Foreman was started by Tom Shipley, a South Carolina contractor with more than 20 years and hundreds of completed projects behind him. He builds sites the way he'd want his own: simple to use, quick to load, and set up to get the phone ringing.</p>
@@ -280,7 +294,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
     <div class="wrap">
       <div class="contact-grid">
         <div class="contact-info">
-          <div class="sec-head" style="margin-bottom:8px">
+          <div class="sec-head" data-reveal style="margin-bottom:8px">
             <span class="tag">Book Now</span>
             <h2>Book your free consultation.</h2>
             <p>Pick a day and time that works. We'll talk through your business, look at what you have now and give you a plan and a price for your website.</p>
@@ -290,7 +304,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
           <div class="info-row"><span class="tag">Serving</span><span class="val">The Grand Strand and surrounding areas</span></div>
         </div>
 
-        <form id="quote" action="https://formsubmit.co/info@digitalforeman.org" method="POST">
+        <form id="quote" data-reveal="right" action="https://formsubmit.co/info@digitalforeman.org" method="POST">
           <input type="hidden" name="_subject" value="New Book Now request - Digital Foreman">
           <input type="hidden" name="_next" value="https://digitalforeman.org/thanks.html">
           <input type="hidden" name="_template" value="table">
