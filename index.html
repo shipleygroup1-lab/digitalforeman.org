@@ -304,11 +304,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
           <div class="info-row"><span class="tag">Serving</span><span class="val">The Grand Strand and surrounding areas</span></div>
         </div>
 
-        <form id="quote" data-reveal="right" action="https://formsubmit.co/info@digitalforeman.org" method="POST">
-          <input type="hidden" name="_subject" value="New Book Now request - Digital Foreman">
-          <input type="hidden" name="_next" value="https://digitalforeman.org/thanks.html">
-          <input type="hidden" name="_template" value="table">
-          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+        <form id="quote" data-reveal="right" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="a8bd8087-d9c3-45ed-81a1-c68302d9fceb">
+          <input type="hidden" name="subject" value="New Book Now request - Digital Foreman">
+          <input type="hidden" name="from_name" value="Digital Foreman website">
+          <input type="hidden" name="redirect" value="https://digitalforeman.org/thanks.html">
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
           <div class="row2">
             <label for="f-name">Your name<input id="f-name" name="name" autocomplete="name" required></label>
             <label for="f-biz">Business name<input id="f-biz" name="business" required></label>
