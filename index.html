@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Digital Foreman builds and manages websites for contractors and local service businesses on the Grand Strand, SC. Book a free consultation.">
+<meta name="description" content="Digital Foreman builds and manages websites and back-office systems for contractors and local service businesses. Based in Myrtle Beach, SC. Book a free consultation.">
 <title>Digital Foreman</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -99,6 +99,11 @@ section{padding-block:72px}
 .intro p{color:var(--ink);font-size:1rem}
 .intro-note{display:block;font-size:.92rem;color:var(--blue);font-weight:600;margin-top:4px}
 @media (max-width:700px){.plans{grid-template-columns:1fr}}
+.sys-head{margin:44px 0 20px;display:grid;gap:8px;max-width:70ch}
+.sys-head h3{font-size:1.5rem;font-weight:800;color:var(--navy)}
+.sys-head p{color:var(--muted);font-size:1rem}
+.plan-setup{font-family:var(--display);font-weight:800;color:var(--navy);font-size:1.05rem;margin-top:-6px}
+.upgrade-note{margin-top:16px;color:var(--ink);font-size:.98rem;background:#fff;border-left:4px solid var(--blue);padding:12px 16px;border-radius:4px}
 .addon{margin-top:20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;background:#fff;border:1px dashed var(--blue);border-radius:6px;padding:24px 28px}
 .addon-copy{display:grid;gap:6px;flex:1 1 320px;min-width:0}
 .addon h3{font-size:1.3rem;font-weight:800}
@@ -181,7 +186,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
     <div class="hero-copy">
       <h1 data-reveal="left">Your website, run like a <em>job site.</em></h1>
       <div class="hero-side" data-reveal="right">
-        <p>Digital Foreman builds and manages websites for contractors and local service businesses on the Grand Strand. We set it up, keep it running and make the changes, so your phone rings and you stay on the job.</p>
+        <p>Digital Foreman builds and manages websites for contractors and local service businesses, wherever you work. We set it up, keep it running and make the changes, so your phone rings and you stay on the job.</p>
         <div class="cta-row">
           <a class="btn btn-blue" href="#contact">Book a free consultation</a>
           <a class="btn btn-ghost" href="#pricing">See pricing</a>
@@ -195,7 +200,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
       <div class="sec-head" data-reveal>
         <span class="tag">Scope of work</span>
         <h2>Everything a local business site needs. Nothing it doesn't.</h2>
-        <p>One flat setup price, one monthly plan. No contracts full of add-ons.</p>
+        <p>Flat prices you can see up front. No long-term contracts, and nothing you didn't ask for.</p>
       </div>
       <div class="scope">
         <div data-reveal><h3>Built around the phone call</h3><p>Tap-to-call on every page, a booking form that lands in your inbox, your license number where customers look for it, and an optional text-back for calls you miss.</p></div>
@@ -212,8 +217,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
     <div class="wrap">
       <div class="sec-head" data-reveal>
         <span class="tag">Pricing</span>
-        <h2>One setup. One monthly plan.</h2>
-        <p>Every site starts with the same build. Pick the monthly plan that fits how much you want handled.</p>
+        <h2>Start with the website. Add the back office when you're ready.</h2>
+        <p>Every plan starts with the same website build. Pick how much you want handled, from a site that just works up to the full system we run our own contracting business on.</p>
       </div>
 
       <div class="intro" data-reveal>
@@ -222,7 +227,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
       </div>
 
       <div class="setup" data-reveal>
-        <strong>Website setup</strong>
+        <strong>Website setup <small style="font-size:.85rem;font-weight:600;color:#A9C4E4">for Basic and Growth</small></strong>
         <span class="amt">$500 <small>one time</small></span>
         <p>Design, build, domain connection, secure HTTPS, quote form, email forwarding and the full go-live checklist.</p>
       </div>
@@ -246,17 +251,54 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
             <li>Everything in Basic</li>
             <li>New project photos added every month</li>
             <li>Service and town pages added as you grow</li>
-            <li>Monthly report on visits and leads</li>
+            <li>Monthly check that your forms, calls and email are all working</li>
             <li>Priority turnaround on changes</li>
           </ul>
         </article>
       </div>
 
+      <div class="sys-head" data-reveal>
+        <span class="tag">Full contractor system</span>
+        <h3>Your website, phone, CRM and follow-up, set up and kept running.</h3>
+        <p>The same back-office system we run our own contracting business on, built for yours. You keep and pay for your own tools (phone line, CRM, automations); we set them up, connect them and keep an eye on them every month.</p>
+      </div>
+
+      <div class="plans">
+        <article class="plan" data-reveal>
+          <div class="plan-top"><h3>Pro</h3><span class="price"><s class="was">$199</s>$149<small>/mo</small></span></div>
+          <p class="plan-setup">$1,500 one-time setup</p>
+          <p class="who">For contractors who want every call and lead caught and tracked. <span class="intro-note">Intro rate for 6 months, then $199/mo.</span></p>
+          <ul>
+            <li>Everything in Growth, including the website build</li>
+            <li>Business phone line with AI answering set up</li>
+            <li>CRM set up with your services, pipeline and follow-up texts and emails</li>
+            <li>Online booking form that drops leads straight into your CRM</li>
+            <li>Leads from your site and ads routed in automatically</li>
+            <li>Monthly monitoring of your phone, CRM and booking, and fixes when something breaks</li>
+          </ul>
+        </article>
+        <article class="plan" data-reveal>
+          <div class="plan-top"><h3>Grand Finale</h3><span class="price"><s class="was">$299</s>$249<small>/mo</small></span></div>
+          <p class="plan-setup">$3,000 one-time setup</p>
+          <p class="who">For contractors who want the whole back office running for them. <span class="intro-note">Intro rate for 6 months, then $299/mo.</span></p>
+          <ul>
+            <li>Everything in Pro</li>
+            <li>Automated follow-up at every stage, from new lead to finished job</li>
+            <li>Crew job board so your team sees every job's details</li>
+            <li>Automations connecting your tools so nothing gets typed twice</li>
+            <li>Payments log that tracks every payment as it comes in</li>
+            <li>Monthly check-in call to review how it's all running</li>
+          </ul>
+        </article>
+      </div>
+
+      <p class="upgrade-note" data-reveal>Started on Basic or Growth? Upgrade to Pro or Grand Finale within 6 months and your $500 website setup counts toward the new setup fee.</p>
+
       <div class="addon" data-reveal>
         <div class="addon-copy">
           <span class="tag">Add-on</span>
           <h3>Missed-call text-back</h3>
-          <p>Can't pick up on a ladder? Every missed call gets a text back in seconds from your own number, with a link to book on your website. No monthly fee.</p>
+          <p>Can't pick up on a ladder? Every missed call gets an automatic text back with a link to book on your website. Works on Android phones today; iPhone setup on request. No monthly fee.</p>
         </div>
         <span class="amt">$79 <small>one time</small></span>
       </div>
@@ -301,7 +343,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
           </div>
           <div class="info-row"><span class="tag">Email</span><span class="val">info@digitalforeman.org</span></div>
           <div class="info-row"><span class="tag">Based in</span><span class="val">Myrtle Beach, South Carolina</span></div>
-          <div class="info-row"><span class="tag">Serving</span><span class="val">The Grand Strand and surrounding areas</span></div>
+          <div class="info-row"><span class="tag">Serving</span><span class="val">Contractors and local businesses anywhere in the U.S.</span></div>
         </div>
 
         <form id="quote" data-reveal="right" action="https://api.web3forms.com/submit" method="POST">
