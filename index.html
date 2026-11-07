@@ -103,6 +103,18 @@ section{padding-block:72px}
 .sys-head h3{font-size:1.5rem;font-weight:800;color:var(--navy)}
 .sys-head p{color:var(--muted);font-size:1rem}
 .plan-setup{font-family:var(--display);font-weight:800;color:var(--navy);font-size:1.05rem;margin-top:-6px}
+.showcase{margin-top:20px;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:20px 32px;align-items:center;background:var(--navy);color:var(--on-navy);border-radius:6px;padding:28px}
+.showcase h3{font-size:1.6rem;font-weight:900;color:#fff;margin:6px 0 8px}
+.showcase p{color:#C9D6E6;font-size:1rem}
+.showcase ul{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:8px}
+.showcase li{padding-left:22px;position:relative;color:#E3ECF6}
+.showcase li::before{content:"";position:absolute;left:0;top:.5em;width:10px;height:10px;border-radius:2px;background:#5FA8F0}
+.showcase .tag{color:#A9C4E4}
+.showcase-price{display:grid;gap:10px;align-content:center}
+.showcase-price .amt{font-family:var(--display);font-weight:900;font-size:2.2rem;color:#fff;font-variant-numeric:tabular-nums;line-height:1}
+.showcase-price .amt small{font-size:.9rem;font-weight:600;color:#A9C4E4}
+.showcase-price .btn{text-align:center}
+@media (max-width:760px){.showcase{grid-template-columns:1fr}}
 .upgrade-note{margin-top:16px;color:var(--ink);font-size:.98rem;background:#fff;border-left:4px solid var(--blue);padding:12px 16px;border-radius:4px}
 .addon{margin-top:20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;background:#fff;border:1px dashed var(--blue);border-radius:6px;padding:24px 28px}
 .addon-copy{display:grid;gap:6px;flex:1 1 320px;min-width:0}
@@ -255,6 +267,26 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;
             <li>Priority turnaround on changes</li>
           </ul>
         </article>
+      </div>
+
+      <div class="showcase" id="showcase" data-reveal>
+        <div>
+          <span class="tag">Premium website upgrade</span>
+          <h3>Showcase: your work builds itself as they scroll</h3>
+          <p>Instead of a standard page, visitors watch your project come together step by step as they scroll, then land on your quote button. Built around your real job photos. Made to stand out from every other contractor in town.</p>
+          <ul>
+            <li>Custom scroll-build animation for your trade</li>
+            <li>Real job photo gallery, no stock photos</li>
+            <li>Tap-to-call bar and quote form on every phone</li>
+            <li>Works with any monthly plan above</li>
+          </ul>
+        </div>
+        <div class="showcase-price">
+          <span class="amt">$2,661 <small>one time</small></span>
+          <p>Replaces the $532 website setup. <strong style="color:#fff">Pay in full by check or card and it&rsquo;s $2,500.</strong> Or split it into 4 payments with Afterpay. On Pro or Grand Finale, add Showcase for $2,000.</p>
+          <a class="btn btn-blue" href="/demo/simply-enclosures/" target="_blank" rel="noopener">See a live demo</a>
+          <a class="btn btn-ghost" style="color:#fff;box-shadow:inset 0 0 0 2px #fff" href="#contact">Ask about Showcase</a>
+        </div>
       </div>
 
       <div class="sys-head" data-reveal>
