@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Simply Enclosures | Screen Rooms Built Layer by Layer</title>
+<meta name="description" content="Custom screen rooms and patio enclosures in Myrtle Beach and the Grand Strand. Watch your porch get built as you scroll. Free estimates: 843-274-2359.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+:root{
+  --navy:#0B1F3A; --blue:#2E86DE; --sky:#5DADE2; --sand:#F4F1EA; --ink:#1B2430; --muted:#5A6573;
+  --display:"Archivo","Arial Black",system-ui,sans-serif; --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--sand);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6}
+img{max-width:100%;display:block}
+a{color:var(--blue)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 max(16px,env(safe-area-inset-left))}
+.demo-bar{background:var(--navy);color:#cfe0f2;font-size:.85rem;text-align:center;padding:6px 16px}
+.demo-bar a{color:#fff;font-weight:600}
+header{position:sticky;top:0;z-index:20;background:#fff;box-shadow:0 1px 0 rgba(0,0,0,.08)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:10px;padding-bottom:10px}
+header img{height:44px;width:auto}
+.btn{display:inline-block;font-family:var(--display);font-weight:800;letter-spacing:.02em;text-decoration:none;border-radius:6px;padding:13px 22px;border:0;cursor:pointer;font-size:1rem}
+.btn-blue{background:var(--blue);color:#fff}.btn-blue:hover{background:#1f6fbd}
+.btn-ghost{background:transparent;color:var(--navy);box-shadow:inset 0 0 0 2px var(--navy)}
+header .btn{padding:10px 16px;font-size:.92rem}
+
+/* ---------- scroll build ---------- */
+.build{position:relative;height:500vh;background:linear-gradient(#cfe6f7,#eaf4fb 60%,var(--sand))}
+.stage{position:sticky;top:0;height:100vh;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);align-items:center;gap:32px;max-width:1180px;margin:0 auto;padding:72px max(16px,env(safe-area-inset-left)) 24px}
+.copy{position:relative;min-height:260px}
+.step{position:absolute;inset:0;opacity:0;transform:translateY(18px);transition:opacity .45s,transform .45s}
+.step.on{opacity:1;transform:none}
+.kicker{font-family:var(--display);font-weight:800;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+.step h1,.step h2{font-family:var(--display);font-weight:900;color:var(--navy);font-size:clamp(2rem,4.6vw,3.6rem);line-height:1.02;margin:.25em 0 .35em;letter-spacing:-.01em}
+.step p{color:var(--muted);max-width:34ch;margin:0 0 18px}
+.copy{padding-top:20px}
+.step{top:20px}
+.progress{display:flex;gap:6px;position:absolute;top:0;left:0}
+.progress i{width:28px;height:5px;border-radius:3px;background:#c8d3df;transition:background .3s}
+.progress i.on{background:var(--blue)}
+.art{width:100%;filter:drop-shadow(0 24px 40px rgba(11,31,58,.18))}
+.art svg{width:100%;height:auto;display:block}
+.layer{opacity:0;transition:opacity .6s, transform .6s}
+.layer.on{opacity:1}
+#frame.layer{transform:translateY(-14px)}#frame.layer.on{transform:none}
+#screens.layer{transform:scaleY(.2);transform-origin:50% 0%}#screens.layer.on{transform:none}
+.scroll-hint{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);font-size:.8rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+@media (max-width:820px){
+  .stage{grid-template-columns:1fr;grid-template-rows:auto auto;align-content:center;gap:8px;padding-top:64px;padding-bottom:84px}
+  .copy{min-height:210px;order:2}
+  .art{order:1}
+  .step p{max-width:none}
+}
+@media (prefers-reduced-motion:reduce){.step,.layer{transition:none}}
+
+/* ---------- sections ---------- */
+section.band{padding:72px 0}
+.band h2{font-family:var(--display);font-weight:900;color:var(--navy);font-size:clamp(1.7rem,3.4vw,2.6rem);line-height:1.08;margin:0 0 10px}
+.band .lead{color:var(--muted);max-width:60ch;margin:0 0 28px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.grid figure{margin:0;border-radius:10px;overflow:hidden;background:#ddd;aspect-ratio:4/5}
+.grid img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.grid figure:hover img{transform:scale(1.04)}
+.grid figcaption{display:none}
+@media (max-width:820px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.addons{background:var(--navy);color:#e6eef7}
+.addons h2{color:#fff}.addons .lead{color:#b9c9da}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none}
+.chips li{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:10px 18px;font-weight:600}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+.split img{border-radius:12px}
+@media (max-width:820px){.split{grid-template-columns:1fr}}
+.steps3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;counter-reset:s}
+.steps3 div{background:#fff;border-radius:12px;padding:22px;box-shadow:0 2px 10px rgba(11,31,58,.06)}
+.steps3 b{font-family:var(--display);color:var(--blue);font-size:1.6rem;display:block}
+@media (max-width:820px){.steps3{grid-template-columns:1fr}}
+.cta{background:linear-gradient(135deg,var(--navy),#16406f);color:#fff;text-align:center}
+.cta h2{color:#fff}.cta p{color:#cfe0f2;margin:0 auto 24px;max-width:50ch}
+.cta .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cta .btn-ghost{color:#fff;box-shadow:inset 0 0 0 2px #fff}
+footer{background:#08172b;color:#9fb3c8;font-size:.9rem;padding:26px 0}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:none;background:var(--blue);text-align:center;padding:12px calc(12px + env(safe-area-inset-bottom))}
+.callbar a{color:#fff;font-family:var(--display);font-weight:800;text-decoration:none;letter-spacing:.02em}
+@media (max-width:820px){.callbar{display:block}footer{padding-bottom:70px}}
+</style>
+</head>
+<body>
+
+<div class="demo-bar">Showcase website demo by <a href="https://digitalforeman.org">Digital Foreman</a>: scroll to watch the porch get built.</div>
+
+<header>
+  <div class="wrap">
+    <a href="#top" aria-label="Simply Enclosures home"><img src="img/logo.png" alt="Simply Enclosures: screen rooms and patio enclosures"></a>
+    <a class="btn btn-blue" href="tel:+18432742359">Call 843-274-2359</a>
+  </div>
+</header>
+
+<main id="top">
+<!-- ===== Scroll build ===== -->
+<section class="build" id="build" aria-label="Watch a screen room get built">
+  <div class="stage">
+    <div class="copy">
+      <div class="step on" data-step="0">
+        <div class="kicker">Simply Enclosures · Grand Strand, SC</div>
+        <h1>It starts with your slab.</h1>
+        <p>Every screen room we build begins with what you already have: a patio, a slab, or a covered porch. Keep scrolling.</p>
+      </div>
+      <div class="step" data-step="1">
+        <div class="kicker">Step 2</div>
+        <h2>Framed to fit your home.</h2>
+        <p>Custom-cut aluminum framing, measured to your house. No kits, no one-size-fits-all.</p>
+      </div>
+      <div class="step" data-step="2">
+        <div class="kicker">Step 3</div>
+        <h2>Screened in. Bugs out.</h2>
+        <p>Tight screen panels keep out mosquitoes and no-see-ums, so you can use your porch every day.</p>
+      </div>
+      <div class="step" data-step="3">
+        <div class="kicker">Step 4</div>
+        <h2>Finished your way.</h2>
+        <p>Add a full-view door, a ceiling fan, a mounted TV, and a slip-resistant tile floor. One crew, one job.</p>
+      </div>
+      <div class="step" data-step="4">
+        <div class="kicker">Done</div>
+        <h2>Your porch, built right.</h2>
+        <p>Licensed SC contractor. Free on-site estimates across Myrtle Beach and the Grand Strand.</p>
+        <a class="btn btn-blue" href="#quote">Get my free estimate</a>
+      </div>
+      <div class="progress" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+    </div>
+
+    <div class="art" aria-hidden="true">
+      <svg viewBox="0 0 1000 640" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="siding" width="20" height="22" patternUnits="userSpaceOnUse">
+            <rect width="20" height="22" fill="#7f8fa3"/><rect y="19" width="20" height="3" fill="#6c7c90"/>
+          </pattern>
+          <pattern id="mesh" width="6" height="6" patternUnits="userSpaceOnUse">
+            <rect width="6" height="6" fill="#1c2733"/><path d="M0 0H6M0 0V6" stroke="#2c3a48" stroke-width="1"/>
+          </pattern>
+          <pattern id="tile" width="90" height="40" patternUnits="userSpaceOnUse">
+            <rect width="90" height="40" fill="#9aa6b2"/><rect x="1" y="1" width="88" height="18" fill="#a9b4bf"/><rect x="46" y="21" width="88" height="18" fill="#a3aeba"/><rect x="-44" y="21" width="88" height="18" fill="#a3aeba"/>
+          </pattern>
+          <linearGradient id="grass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fbf5a"/><stop offset="1" stop-color="#6f9e3e"/></linearGradient>
+        </defs>
+        <!-- house -->
+        <rect x="40" y="60" width="920" height="460" fill="url(#siding)"/>
+        <polygon points="20,70 500,0 980,70" fill="#3d4a5a"/>
+        <rect x="20" y="66" width="960" height="22" fill="#e9edf1"/>
+        <!-- windows / slider on house wall -->
+        <rect x="200" y="200" width="150" height="190" fill="#e9edf1"/><rect x="212" y="212" width="126" height="166" fill="#3b4f66"/><rect x="273" y="212" width="4" height="166" fill="#e9edf1"/>
+        <rect x="430" y="180" width="240" height="330" fill="#e9edf1"/><rect x="442" y="192" width="104" height="318" fill="#33475e"/><rect x="554" y="192" width="104" height="318" fill="#3b4f66"/>
+        <rect x="740" y="200" width="150" height="190" fill="#e9edf1"/><rect x="752" y="212" width="126" height="166" fill="#3b4f66"/><rect x="813" y="212" width="4" height="166" fill="#e9edf1"/>
+        <!-- ground -->
+        <rect x="0" y="520" width="1000" height="120" fill="url(#grass)"/>
+
+        <!-- 1 slab (always visible at start) -->
+        <g id="slab" class="layer on">
+          <rect x="90" y="508" width="820" height="26" fill="#c9c5bc"/>
+          <rect x="90" y="530" width="820" height="8" fill="#a9a59c"/>
+        </g>
+
+        <!-- 4a tile floor (add-on) -->
+        <g id="tilefloor" class="layer">
+          <rect x="96" y="508" width="808" height="22" fill="url(#tile)"/>
+        </g>
+
+        <!-- 2 frame -->
+        <g id="frame" class="layer" fill="#f7f8fa">
+          <rect x="70" y="88" width="860" height="26"/>
+          <rect x="96" y="114" width="18" height="396"/>
+          <rect x="300" y="114" width="16" height="396"/>
+          <rect x="492" y="114" width="16" height="396"/>
+          <rect x="684" y="114" width="16" height="396"/>
+          <rect x="886" y="114" width="18" height="396"/>
+          <rect x="114" y="420" width="772" height="10"/>
+          <rect x="114" y="498" width="772" height="10"/>
+          <!-- gutter + downspout -->
+          <rect x="66" y="84" width="868" height="8" fill="#ffffff"/>
+          <rect x="910" y="92" width="12" height="430" fill="#ffffff"/>
+        </g>
+
+        <!-- 3 screens -->
+        <g id="screens" class="layer" opacity=".9">
+          <rect x="114" y="114" width="186" height="306" fill="url(#mesh)" opacity=".72"/>
+          <rect x="114" y="430" width="186" height="68" fill="url(#mesh)" opacity=".72"/>
+          <rect x="316" y="114" width="176" height="306" fill="url(#mesh)" opacity=".72"/>
+          <rect x="316" y="430" width="176" height="68" fill="url(#mesh)" opacity=".72"/>
+          <rect x="508" y="114" width="176" height="306" fill="url(#mesh)" opacity=".72"/>
+          <rect x="508" y="430" width="176" height="68" fill="url(#mesh)" opacity=".72"/>
+          <rect x="700" y="114" width="186" height="306" fill="url(#mesh)" opacity=".72"/>
+          <rect x="700" y="430" width="186" height="68" fill="url(#mesh)" opacity=".72"/>
+        </g>
+
+        <!-- 4 add-ons: door, fan, tv, chairs -->
+        <g id="addons" class="layer">
+          <!-- door in bay 3 -->
+          <rect x="540" y="196" width="112" height="304" fill="none" stroke="#f7f8fa" stroke-width="10"/>
+          <rect x="545" y="380" width="102" height="10" fill="#f7f8fa"/>
+          <rect x="545" y="460" width="102" height="36" fill="#f7f8fa"/>
+          <rect x="632" y="350" width="6" height="26" rx="2" fill="#cfd6dd"/>
+          <!-- ceiling fan -->
+          <rect x="398" y="114" width="4" height="34" fill="#cfd6dd"/>
+          <ellipse cx="400" cy="152" rx="16" ry="8" fill="#cfd6dd"/>
+          <rect x="330" y="149" width="140" height="6" rx="3" fill="#b9c2cc"/>
+          <!-- tv on house wall (seen through screen) -->
+          <rect x="740" y="236" width="128" height="76" rx="4" fill="#0d1218" stroke="#cfd6dd" stroke-width="3"/>
+          <!-- chairs -->
+          <rect x="150" y="452" width="70" height="44" rx="8" fill="#a07a55"/><rect x="150" y="430" width="70" height="26" rx="6" fill="#b68a61"/>
+          <rect x="236" y="452" width="50" height="34" rx="6" fill="#d7d2c8"/>
+          <!-- string lights -->
+          <path d="M114 128 Q 300 160 492 128 T 886 128" fill="none" stroke="#6b5e44" stroke-width="2"/>
+          <g fill="#ffd36b"><circle cx="160" cy="137" r="4"/><circle cx="230" cy="146" r="4"/><circle cx="300" cy="148" r="4"/><circle cx="370" cy="143" r="4"/><circle cx="440" cy="134" r="4"/><circle cx="560" cy="137" r="4"/><circle cx="640" cy="146" r="4"/><circle cx="720" cy="148" r="4"/><circle cx="800" cy="141" r="4"/><circle cx="860" cy="132" r="4"/></g>
+        </g>
+      </svg>
+    </div>
+    <div class="scroll-hint" id="hint">Scroll ↓</div>
+  </div>
+</section>
+
+<!-- ===== Real jobs ===== -->
+<section class="band">
+  <div class="wrap">
+    <h2>Real jobs. Real Grand Strand homes.</h2>
+    <p class="lead">Every photo here is a screen room or patio enclosure we built. No stock photos.</p>
+    <div class="grid">
+      <figure><img src="img/brick-home.jpg" alt="Screen room on a brick home" loading="lazy"><figcaption>Brick home screen room</figcaption></figure>
+      <figure><img src="img/two-story.jpg" alt="Two-story screened porch" loading="lazy"><figcaption>Two-story screened porch</figcaption></figure>
+      <figure><img src="img/lake-view.jpg" alt="Screened porch interior with lake view and roller shades" loading="lazy"><figcaption>Lake-view screen room</figcaption></figure>
+      <figure><img src="img/white-porch.jpg" alt="Screened-in covered patio with full-view door" loading="lazy"><figcaption>Covered patio screen-in</figcaption></figure>
+      <figure><img src="img/tile-exterior.jpg" alt="New screened porch exterior" loading="lazy"><figcaption>New screened porch</figcaption></figure>
+      <figure><img src="img/tile-floor.jpg" alt="Slip-resistant tile floor inside a screened porch" loading="lazy"><figcaption>Tile floor add-on</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Add-ons ===== -->
+<section class="band addons">
+  <div class="wrap split">
+    <div>
+      <h2>One crew. The whole porch.</h2>
+      <p class="lead">Most companies stop at the screens. We can finish the whole space in the same job.</p>
+      <ul class="chips">
+        <li>Ceiling fans</li><li>Mounted TVs</li><li>Slip-resistant tile</li><li>Epoxy floors</li><li>Concrete paint &amp; stain</li><li>Full-view screen doors</li>
+      </ul>
+    </div>
+    <img src="img/tile-floor.jpg" alt="Finished tile floor in a screened porch" loading="lazy">
+  </div>
+</section>
+
+<!-- ===== How it works ===== -->
+<section class="band">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <p class="lead">Simple, local, and no pressure.</p>
+    <div class="steps3">
+      <div><b>1</b><strong>Free on-site estimate</strong><br>We measure your space and talk through options.</div>
+      <div><b>2</b><strong>Clear written quote</strong><br>You get one price for the screen room and any add-ons.</div>
+      <div><b>3</b><strong>We build it</strong><br>Our crew builds it to fit your home, then walks it with you.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="band cta" id="quote">
+  <div class="wrap">
+    <h2>Ready for a bug-free porch?</h2>
+    <p>Free estimates across Myrtle Beach, Surfside, Murrells Inlet, Conway, North Myrtle Beach and Little River.</p>
+    <div class="btns">
+      <a class="btn btn-blue" href="tel:+18432742359">Call 843-274-2359</a>
+      <a class="btn btn-ghost" href="https://simplyenclosuresmb.com">Visit simplyenclosuresmb.com</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Simply Crafted Construction LLC dba Simply Enclosures · Licensed SC contractor · 214 Double Eagle Dr, Myrtle Beach, SC 29575</span>
+    <span>Website by <a href="https://digitalforeman.org" style="color:#cfe0f2">Digital Foreman</a></span>
+  </div>
+</footer>
+
+<div class="callbar"><a href="tel:+18432742359">Tap to call: 843-274-2359</a></div>
+
+<script>
+(function(){
+  var build=document.getElementById('build');
+  var steps=[].slice.call(document.querySelectorAll('.step'));
+  var bars=[].slice.call(document.querySelectorAll('.progress i'));
+  var hint=document.getElementById('hint');
+  var L={frame:document.getElementById('frame'),screens:document.getElementById('screens'),addons:document.getElementById('addons'),tile:document.getElementById('tilefloor')};
+  var current=-1;
+  function setStep(n){
+    if(n===current) return; current=n;
+    steps.forEach(function(s,i){s.classList.toggle('on',i===n)});
+    bars.forEach(function(b,i){b.classList.toggle('on',i<=n)});
+    L.frame.classList.toggle('on',n>=1);
+    L.screens.classList.toggle('on',n>=2);
+    L.addons.classList.toggle('on',n>=3);
+    L.tile.classList.toggle('on',n>=3);
+    if(hint) hint.style.opacity=n>=4?0:1;
+  }
+  function onScroll(){
+    var r=build.getBoundingClientRect();
+    var total=build.offsetHeight-window.innerHeight;
+    var p=Math.min(1,Math.max(0,-r.top/Math.max(1,total)));
+    setStep(Math.min(4,Math.floor(p*5)));
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll);
+  onScroll();
+})();
+</script>
+</body>
+</html>
