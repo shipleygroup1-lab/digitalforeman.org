@@ -3,442 +3,478 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Digital Foreman | Websites for Contractors</title>
 <meta name="description" content="Digital Foreman builds and manages websites and back-office systems for contractors and local service businesses. Based in Myrtle Beach, SC. Book a free consultation.">
-<title>Digital Foreman</title>
+<link rel="canonical" href="https://digitalforeman.org/">
+<link rel="icon" type="image/png" href="images/df-hat.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Digital Foreman | Your website, run like a job site">
+<meta property="og:description" content="Websites, phone, CRM and follow-up for contractors. Built by a contractor. Flat prices, no long-term contracts.">
+<meta property="og:url" content="https://digitalforeman.org/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Digital Foreman","url":"https://digitalforeman.org/","email":"info@digitalforeman.org","logo":"https://digitalforeman.org/images/df-logo-cutout.png","address":{"@type":"PostalAddress","addressLocality":"Myrtle Beach","addressRegion":"SC","addressCountry":"US"},"areaServed":"US","description":"Websites and back-office systems for contractors and local service businesses."}</script>
+<style>html,body{margin:0;overflow-x:clip}.ticker{max-width:100vw}[hidden]{display:none!important}img{max-width:100%}</style>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500&display=swap">
 <style>
-/* Layout: job-site plan set. Concrete ground, navy "title block" bands, blueprint-blue spec labels. Single committed light look to match the logo. */
+/* Layout: concrete-wall brutalism in the logo's navy and blue, read like a job-site spec sheet. Hard rules, a scope index, a price ledger instead of cards. */
 :root{
-  --concrete:#E3E5E7;
-  --slab:#F2F3F4;
-  --navy:#0E2A4F;
-  --navy-2:#173A66;
-  --blue:#1F7AD1;
-  --ink:#1B2430;
-  --muted:#4F5B69;
-  --line:#C5CBD2;
-  --on-navy:#E9EEF5;
-  --display:"Archivo","Arial Black",system-ui,sans-serif;
-  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --carbon:#EEF0F1; --slab:#FFFFFF; --bone:#0B2A55; --dust:#5E6E86; --rule:#CCD3DC;
+  --hivis:#1877D2; /* logo blue, focus only */
+  --full:url("images/df-logo-cutout.png"); --hat:url("images/df-hat.png");
+  --display:'Syne', 'Arial Black', Impact, sans-serif;
+  --body:'Inter Tight', 'Segoe UI', system-ui, sans-serif;
+  --mono:'JetBrains Mono', ui-monospace, Consolas, monospace;
+  --chapter:clamp(5rem,12vw,11rem);
   color-scheme:light;
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--concrete);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--navy)}
-.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-h1,h2,h3{font-family:var(--display);color:var(--navy);text-wrap:balance;line-height:1.08;margin:0}
-p{margin:0}
-a{color:var(--blue)}
-:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
-.tag{font-family:var(--mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+html{scroll-behavior:smooth}
+body{background:var(--carbon);color:var(--bone);font-family:var(--body);font-size:17px;line-height:1.6;overflow-x:hidden;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.07;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--hivis);outline-offset:4px}
+.wrap{max-width:1360px;margin:0 auto}
+.mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase}
+.dust{color:var(--dust)}
+.hv{color:var(--hivis)}
 
-/* nav */
-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--navy);color:var(--on-navy)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
-.brand{font-family:var(--display);font-weight:900;letter-spacing:.04em;font-size:1.05rem;color:#fff;text-decoration:none}
-.brand span{color:#5FA8EC}
-nav{display:flex;gap:22px;align-items:center}
-nav a{color:var(--on-navy);text-decoration:none;font-weight:600;font-size:.95rem}
-nav a:hover{color:#fff}
-.btn{display:inline-block;font-family:var(--display);font-weight:800;text-decoration:none;border-radius:4px;padding:12px 20px;letter-spacing:.02em;border:0;cursor:pointer;font-size:1rem}
-.btn-blue{background:var(--blue);color:#fff}
-.btn-blue:hover{background:#1868B5}
-.btn-ghost{background:transparent;color:var(--navy);box-shadow:inset 0 0 0 2px var(--navy)}
-.btn-ghost:hover{background:var(--navy);color:#fff}
-nav .btn{padding:9px 14px;font-size:.9rem}
-@media (max-width:640px){nav a:not(.btn){display:none}}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--carbon);border-bottom:1px solid var(--rule)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-block:1rem;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:.7rem;font-family:var(--display);font-weight:800;font-size:1.15rem;letter-spacing:-.01em;text-transform:uppercase;text-decoration:none;line-height:1}
+.brand span{color:var(--hivis)}
+.mark{width:50px;height:35px;flex:none;background:var(--hat) center/contain no-repeat}
+.logo-panel{margin:0;width:100%;max-width:520px;justify-self:end;aspect-ratio:455/349;background:var(--full) center/contain no-repeat;transform-style:preserve-3d;transition:transform .25s ease-out;filter:drop-shadow(0 24px 30px rgba(11,42,85,.18))}
+.navr{display:flex;gap:.75rem;align-items:center}
+/* segmented toggle */
+.seg{position:relative;display:flex;gap:2px;padding:5px;background:var(--slab);border:1px solid var(--rule);border-radius:999px;box-shadow:0 1px 2px rgba(11,42,85,.06),0 10px 28px -14px rgba(11,42,85,.35)}
+.seg a{position:relative;z-index:1;display:inline-flex;align-items:center;gap:.45rem;padding:.62rem 1.15rem;border-radius:999px;font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--dust);transition:color .25s}
+.seg a:hover{color:var(--bone)}
+.seg a.on{color:#FFFFFF}
+.seg a .dot{width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.35;transition:opacity .25s,background .25s}
+.seg a.on .dot{opacity:1;background:var(--hivis)}
+.seg .pill{position:absolute;z-index:0;top:5px;bottom:5px;left:0;width:0;border-radius:999px;background:var(--bone);box-shadow:0 6px 14px -6px rgba(11,42,85,.6);opacity:0;transition:transform .45s cubic-bezier(.2,.7,.1,1),width .45s cubic-bezier(.2,.7,.1,1),opacity .3s}
+.cta-pill{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.3rem;border-radius:999px;background:var(--hivis);color:#FFFFFF;text-decoration:none;font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;box-shadow:0 10px 22px -10px rgba(24,119,210,.8);transition:background .25s}
+.cta-pill:hover{background:#0F5FAE}
+.cta-pill svg{width:15px;height:15px}
+.menu-btn{display:none;align-items:center;gap:.6rem;padding:.7rem 1.1rem;border-radius:999px;border:1px solid var(--rule);background:var(--slab);color:var(--bone);font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;box-shadow:0 6px 18px -10px rgba(11,42,85,.4)}
+.burger{position:relative;width:16px;height:10px}
+.burger i,.burger::before,.burger::after{content:"";position:absolute;left:0;right:0;height:2px;border-radius:2px;background:currentColor;transition:transform .35s cubic-bezier(.2,.7,.1,1),opacity .2s}
+.burger::before{top:0}.burger i{top:4px}.burger::after{top:8px}
+.menu-btn[aria-expanded="true"] .burger::before{transform:translateY(4px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] .burger::after{transform:translateY(-4px) rotate(-45deg)}
+.menu-btn[aria-expanded="true"] .burger i{opacity:0}
+.mpanel{position:absolute;left:0;right:0;top:100%;display:grid;gap:.6rem;padding:1rem max(16px,env(safe-area-inset-right,0px)) 1.25rem max(16px,env(safe-area-inset-left,0px));background:var(--carbon);border-bottom:1px solid var(--rule);box-shadow:0 24px 40px -24px rgba(11,42,85,.45)}
+.mpanel a{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.25rem;border:1px solid var(--rule);border-radius:16px;background:var(--slab);text-decoration:none;font-family:var(--display);font-weight:700;font-size:1.1rem;text-transform:uppercase;letter-spacing:-.01em}
+.mpanel a.go{background:var(--hivis);border-color:var(--hivis);color:#FFFFFF}
+.mpanel a span{font-family:var(--mono);font-size:.7rem;font-weight:400;letter-spacing:.14em;color:var(--dust)}
+.mpanel a.go span{color:#DCEBFA}
 
-/* hero */
-.hero-img{display:block;width:100%;max-width:100%;aspect-ratio:1024/559;object-fit:cover;background:var(--concrete)}
-.hero-copy{padding-block:40px 56px;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:end;border-bottom:1px solid var(--line)}
-.hero-copy h1{font-size:clamp(2rem,5vw,3.4rem);font-weight:900;letter-spacing:-.01em}
-.hero-copy h1 em{font-style:normal;color:var(--blue)}
-.hero-side{display:grid;gap:20px;min-width:0}
-.hero-side p{color:var(--muted)}
-.cta-row{display:flex;flex-wrap:wrap;gap:12px}
-@media (max-width:800px){.hero-copy{grid-template-columns:1fr;gap:20px}}
+.hero{padding-block:clamp(3rem,8vw,6rem) var(--chapter);border-bottom:1px solid var(--rule)}
+.meta{display:flex;flex-wrap:wrap;gap:.5rem 2.5rem}
+.hero h1{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(3.5rem,9vw,8rem);line-height:.95;letter-spacing:-.03em;margin:2rem 0}
+.ln{display:block;overflow:hidden;padding-bottom:.04em}
+.ln>span{display:inline-block}
+.hero h1 .out{color:transparent;-webkit-text-stroke:1.5px var(--bone)}
+.hgrid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:end}
+.lede{max-width:44ch;font-size:1.15rem;color:#33476A;margin:0}
+.ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem}
+.btn{display:inline-flex;gap:.6rem;align-items:center;padding:1.15rem 1.8rem;background:var(--hivis);color:#FFFFFF;font-weight:700;text-decoration:none;font-family:var(--display);text-transform:uppercase;letter-spacing:.02em;border:1px solid var(--hivis)}
+.btn.ghost{background:transparent;color:var(--bone);border-color:var(--rule)}
+.btn.ghost:hover{border-color:var(--bone)}
+.btn svg{width:18px;height:18px}
 
-section{padding-block:72px}
-.sec-head{display:grid;gap:10px;margin-bottom:36px;max-width:640px}
-.sec-head h2{font-size:clamp(1.7rem,3.6vw,2.4rem);font-weight:800}
-.sec-head p{color:var(--muted)}
+.ticker{overflow:hidden;border-bottom:1px solid var(--rule);margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));background:var(--bone);color:#FFFFFF}
+.ticker .track span::after{color:var(--hivis);opacity:1}
+.track{display:flex;width:max-content;animation:tick 32s linear infinite}
+.track span{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(1.3rem,3vw,2.2rem);padding:.9rem 1.4rem;white-space:nowrap}
+.track span::after{content:"/";margin-left:2.8rem;opacity:.45}
+@keyframes tick{to{transform:translateX(-50%)}}
 
-/* scope list */
-.scope{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:2px solid var(--navy)}
-.scope div{padding:24px 24px 28px 0;border-bottom:1px solid var(--line);display:grid;gap:8px;align-content:start;min-width:0}
-.scope div+div{padding-left:24px;border-left:1px solid var(--line)}
-.scope div:nth-child(3n+1){padding-left:0;border-left:0}
-.scope h3{font-size:1.15rem;font-weight:800}
-.scope p{color:var(--muted);font-size:1rem}
-@media (max-width:800px){.scope{grid-template-columns:1fr}.scope div,.scope div+div{padding:20px 0;border-left:0}}
+.chapter{padding-block:var(--chapter)}
+.chead{display:grid;grid-template-columns:240px 1fr;gap:2rem;margin-bottom:clamp(2.5rem,6vw,5rem)}
+.chead h2{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(2.2rem,5.2vw,4.4rem);line-height:.98;letter-spacing:-.03em;margin:0;text-wrap:balance}
+.chead p{color:#33476A;max-width:52ch;margin:1.25rem 0 0}
 
-/* pricing */
-.pricing{background:var(--slab);border-block:1px solid var(--line)}
-.setup{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px 24px;background:var(--navy);color:var(--on-navy);padding:22px 26px;border-radius:6px;margin-bottom:20px}
-.setup strong{font-family:var(--display);font-size:1.3rem;color:#fff}
-.setup .amt{font-family:var(--display);font-weight:900;font-size:2rem;color:#fff;font-variant-numeric:tabular-nums}
-.setup .amt small{font-size:.9rem;font-weight:600;color:#A9C4E4}
-.setup p{color:#C9D6E6;font-size:.98rem;flex-basis:100%}
-.plans{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.plan{background:#fff;border:1px solid var(--line);border-radius:6px;padding:28px;display:grid;gap:16px;align-content:start;min-width:0}
-.plan.pick{border:2px solid var(--blue)}
-.plan-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
-.plan h3{font-size:1.5rem;font-weight:800}
-.price{font-family:var(--display);font-weight:900;font-size:2.4rem;color:var(--navy);font-variant-numeric:tabular-nums;line-height:1}
-.price small{font-size:1rem;font-weight:600;color:var(--muted)}
-.plan ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-.plan li{padding-left:26px;position:relative}
-.plan li::before{content:"";position:absolute;left:0;top:.45em;width:12px;height:12px;border:2px solid var(--blue);border-radius:2px;background:linear-gradient(var(--blue),var(--blue)) center/4px 4px no-repeat}
-.plan .who{color:var(--muted);font-size:.98rem}
-.price .was{font-size:1.1rem;font-weight:700;color:var(--muted);margin-right:8px;vertical-align:middle;text-decoration-thickness:2px}
-.intro{display:grid;gap:4px;background:#E6F1FB;border:1px solid #A9CDEF;border-radius:6px;padding:16px 22px;margin-bottom:20px}
-.intro strong{font-family:var(--display);font-size:1.1rem;color:var(--navy)}
-.intro p{color:var(--ink);font-size:1rem}
-.intro-note{display:block;font-size:.92rem;color:var(--blue);font-weight:600;margin-top:4px}
-@media (max-width:700px){.plans{grid-template-columns:1fr}}
-.sys-head{margin:44px 0 20px;display:grid;gap:8px;max-width:70ch}
-.sys-head h3{font-size:1.5rem;font-weight:800;color:var(--navy)}
-.sys-head p{color:var(--muted);font-size:1rem}
-.plan-setup{font-family:var(--display);font-weight:800;color:var(--navy);font-size:1.05rem;margin-top:-6px}
-.showcase{margin-top:20px;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:20px 32px;align-items:center;background:var(--navy);color:var(--on-navy);border-radius:6px;padding:28px}
-.showcase h3{font-size:1.6rem;font-weight:900;color:#fff;margin:6px 0 8px}
-.showcase p{color:#C9D6E6;font-size:1rem}
-.showcase ul{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:8px}
-.showcase li{padding-left:22px;position:relative;color:#E3ECF6}
-.showcase li::before{content:"";position:absolute;left:0;top:.5em;width:10px;height:10px;border-radius:2px;background:#5FA8F0}
-.showcase .tag{color:#A9C4E4}
-.showcase-price{display:grid;gap:10px;align-content:center}
-.showcase-price .amt{font-family:var(--display);font-weight:900;font-size:2.2rem;color:#fff;font-variant-numeric:tabular-nums;line-height:1}
-.showcase-price .amt small{font-size:.9rem;font-weight:600;color:#A9C4E4}
-.showcase-price .btn{text-align:center}
-@media (max-width:760px){.showcase{grid-template-columns:1fr}}
-.upgrade-note{margin-top:16px;color:var(--ink);font-size:.98rem;background:#fff;border-left:4px solid var(--blue);padding:12px 16px;border-radius:4px}
-.addon{margin-top:20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;background:#fff;border:1px dashed var(--blue);border-radius:6px;padding:24px 28px}
-.addon-copy{display:grid;gap:6px;flex:1 1 320px;min-width:0}
-.addon h3{font-size:1.3rem;font-weight:800}
-.addon p{color:var(--muted);font-size:1rem;max-width:60ch}
-.addon .amt{font-family:var(--display);font-weight:900;font-size:2rem;color:var(--navy);font-variant-numeric:tabular-nums}
-.addon .amt small{font-size:.9rem;font-weight:600;color:var(--muted)}
+.scope{border-top:1px solid var(--bone)}
+.srow{display:grid;grid-template-columns:240px 1fr 1.1fr;gap:2rem;padding-block:1.9rem;border-bottom:1px solid var(--rule);align-items:baseline}
+.srow h3{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,3vw,2.4rem);letter-spacing:-.02em;margin:0;transition:color .3s,transform .5s cubic-bezier(.2,.7,.1,1)}
+.srow p{margin:0;color:#4A5B76;max-width:50ch}
+.srow:hover h3{color:var(--hivis);transform:translateX(.5rem)}
 
-/* process */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
-.step{display:grid;gap:10px;align-content:start;padding-top:18px;border-top:4px solid var(--navy);min-width:0}
-.step .tag::before{counter-increment:s;content:"Phase " counter(s) " "}
-.step h3{font-size:1.15rem;font-weight:800}
-.step p{color:var(--muted);font-size:1rem}
-@media (max-width:860px){.steps{grid-template-columns:1fr 1fr}}
-@media (max-width:520px){.steps{grid-template-columns:1fr}}
+/* price ledger */
+.intro{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;border:1px solid var(--hivis);padding:1rem 1.25rem;margin-bottom:2.5rem}
+.ledger{display:grid;grid-template-columns:1.1fr 1fr;gap:1.5rem}
+.tier{background:var(--slab);border:1px solid var(--rule);padding:clamp(1.5rem,3vw,2.5rem);transform-style:preserve-3d;transition:transform .25s ease-out,border-color .3s;min-width:0;display:flex;flex-direction:column;gap:1rem}
+.tier:hover{border-color:var(--dust)}
+.tier.lead{grid-row:span 2;border-color:var(--hivis)}
+.tier h3{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(1.8rem,3.4vw,2.8rem);letter-spacing:-.02em;margin:0;line-height:1}
+.price{display:flex;align-items:baseline;gap:.8rem;flex-wrap:wrap}
+.price b{font-family:var(--display);font-size:clamp(2.6rem,6vw,4.8rem);line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.price s{color:var(--dust);font-family:var(--mono)}
+.tier ul{list-style:none;margin:0;padding:0;display:grid;gap:.55rem}
+.tier li{display:grid;grid-template-columns:16px 1fr;gap:.7rem;color:#33476A;font-size:.98rem}
+.tier li::before{content:"";width:8px;height:8px;background:var(--hivis);margin-top:.55em}
+.tier .foot{margin-top:auto;padding-top:1rem;border-top:1px solid var(--rule)}
+.setup{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;border-top:1px solid var(--rule);padding-top:1.5rem;margin-top:1.5rem}
 
-/* about */
-.about{background:var(--navy);color:var(--on-navy)}
-.about .wrap{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:start}
-.about h2{color:#fff;font-size:clamp(1.7rem,3.6vw,2.4rem);font-weight:800}
-.about .tag{color:#7DB8F0}
-.about p{color:#C9D6E6;max-width:62ch}
-.stat{font-family:var(--display);font-weight:900;font-size:clamp(3.5rem,9vw,6rem);color:#fff;line-height:.9;font-variant-numeric:tabular-nums}
-.stat small{display:block;font-family:var(--mono);font-weight:500;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:#7DB8F0;margin-top:10px}
-.about-body{display:grid;gap:16px;min-width:0}
-@media (max-width:700px){.about .wrap{grid-template-columns:1fr;gap:20px}}
+/* showcase split */
+.show{display:grid;grid-template-columns:1fr 1fr;border-block:1px solid var(--rule)}
+.show>div{padding-block:clamp(2.5rem,6vw,5rem)}
+.show>div+div{border-left:1px solid var(--rule);padding-left:clamp(1.5rem,5vw,4.5rem)}
+.stack{display:grid;gap:6px;max-width:360px}
+.stack i{display:block;height:28px;background:var(--rule);transform-origin:left;animation:build 4.8s cubic-bezier(.2,.7,.1,1) infinite}
+.stack i:nth-child(1){width:100%;animation-delay:0s}.stack i:nth-child(2){width:82%;animation-delay:.25s}.stack i:nth-child(3){width:91%;animation-delay:.5s}.stack i:nth-child(4){width:64%;animation-delay:.75s}.stack i:nth-child(5){width:40%;background:var(--hivis);animation-delay:1s}
+@keyframes build{0%{transform:scaleX(0)}25%,85%{transform:scaleX(1)}100%{transform:scaleX(1);opacity:.2}}
 
-/* contact */
-.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:40px}
-.contact-info{display:grid;gap:18px;align-content:start;min-width:0}
-.info-row{display:grid;gap:2px}
-.info-row .val{font-weight:600;color:var(--navy);font-size:1.1rem;overflow-wrap:anywhere}
-form{background:#fff;border:1px solid var(--line);border-radius:6px;padding:26px;display:grid;gap:16px;min-width:0}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-label{display:grid;gap:6px;font-weight:600;font-size:.95rem;color:var(--navy)}
-input,select,textarea{font:inherit;font-size:1rem;padding:11px 12px;border:1px solid var(--line);border-radius:4px;background:var(--slab);color:var(--ink);width:100%}
-input:focus,select:focus,textarea:focus{outline:2px solid var(--blue);outline-offset:0;background:#fff}
-textarea{min-height:110px;resize:vertical}
-.note{font-size:.92rem;color:var(--muted)}
-.ok{background:#E6F1FB;border:1px solid #A9CDEF;color:var(--navy);padding:12px 14px;border-radius:4px;font-weight:600}
-@media (max-width:760px){.contact-grid{grid-template-columns:1fr}.row2{grid-template-columns:1fr}}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--bone)}
+.step{padding:2rem 1.75rem 2rem 0;border-right:1px solid var(--rule);min-width:0}
+.step+.step{padding-left:1.75rem}
+.step:last-child{border-right:0}
+.step .n{font-family:var(--mono);color:var(--hivis)}
+.step h3{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:1.5rem;letter-spacing:-.01em;margin:1.5rem 0 .5rem}
+.step p{margin:0;color:#4A5B76}
 
-footer{background:var(--navy);color:#A9BBD1;font-size:.9rem}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;padding-block:24px}
-@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
-/* Scroll animations (see reveal.js): sections glide in with a soft bounce */
-.reveal-on [data-reveal]{opacity:0;transform:translateY(36px);transition:opacity .6s ease-out,transform .8s cubic-bezier(.34,1.45,.64,1);will-change:opacity,transform}
-.reveal-on [data-reveal="left"]{transform:translateX(-48px)}
-.reveal-on [data-reveal="right"]{transform:translateX(48px)}
-.reveal-on [data-reveal="zoom"]{transform:scale(.9)}
-.reveal-on [data-reveal].revealed{opacity:1;transform:none}
+.about{display:grid;grid-template-columns:auto 1fr;gap:clamp(2rem,6vw,6rem);align-items:end}
+.huge{font-family:var(--display);font-weight:800;font-size:clamp(7rem,22vw,19rem);line-height:.8;letter-spacing:-.06em}
+.huge span{color:var(--hivis)}
+.about p{max-width:48ch;color:#33476A}
+.about .q{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,3vw,2.3rem);line-height:1.15;letter-spacing:-.02em;color:var(--bone)}
+
+.final{border-top:1px solid var(--rule);padding-block:var(--chapter)}
+.addons{display:grid;grid-template-columns:1fr 1.4fr;gap:1.5rem;margin-top:1.5rem}
+.bookgrid{display:grid;grid-template-columns:1fr 1.3fr;gap:3rem;align-items:start}
+.bform{display:grid;gap:14px;background:var(--slab);border:1px solid var(--rule);padding:clamp(18px,3vw,28px)}
+.bform .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.bform label{display:grid;gap:6px;font-weight:500;color:var(--bone)}
+.bform input,.bform select,.bform textarea{font:inherit;font-size:16px;padding:11px 12px;border:1px solid var(--rule);background:var(--carbon);color:var(--bone);width:100%}
+.bform textarea{min-height:110px;resize:vertical}
+.bform .btn{justify-content:center;border:0;cursor:pointer}
+@media (max-width:900px){.addons,.bookgrid{grid-template-columns:1fr}.bform .row2{grid-template-columns:1fr}}
+.final h2{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(3.5rem,9vw,8rem);line-height:.95;letter-spacing:-.03em;margin:1.5rem 0 3rem}
+.contact{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;border-top:1px solid var(--rule);padding-top:1.5rem;margin-top:3rem}
+.contact dd{margin:.4rem 0 0;user-select:all}
+.contact dl{margin:0}
+footer{border-top:1px solid var(--rule);padding-block:2rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+#cur{position:fixed;left:0;top:0;width:12px;height:12px;margin:-6px 0 0 -6px;background:var(--hivis);pointer-events:none;z-index:60;opacity:.85;transition:width .3s,height .3s,margin .3s;display:none}
+#cur.on{width:64px;height:64px;margin:-32px 0 0 -32px}
+@media (pointer:fine){#cur{display:block}}
+
+.js .ln>span{animation:rise 1s cubic-bezier(.2,.7,.1,1) both;animation-delay:calc(var(--i)*110ms + 100ms)}
+@keyframes rise{from{transform:translateY(105%)}}
+.reveal{transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.1,1)}
+.reveal.pre{opacity:0;transform:translateY(28px)}
+@media (prefers-reduced-motion:reduce){
+  .js .ln>span,.track,.stack i{animation:none}.reveal.pre{opacity:1;transform:none}#cur{display:none!important}html{scroll-behavior:auto}
+}
+@media (max-width:900px){
+  .hgrid,.ledger,.show,.about{grid-template-columns:1fr}
+  .tier.lead{grid-row:auto}
+  .show>div+div{border-left:0;border-top:1px solid var(--rule);padding-left:0}
+  .chead{grid-template-columns:1fr;gap:.75rem}
+  .srow{grid-template-columns:1fr;gap:.5rem}
+  .steps{grid-template-columns:1fr 1fr}
+  .step:nth-child(2){border-right:0}
+  .step:nth-child(3){padding-left:0}
+  .contact{grid-template-columns:1fr}
+  .seg{display:none}
+  .menu-btn{display:inline-flex}
+}
+@media (max-width:560px){.navr .cta-pill{display:none}}
+@media (prefers-reduced-motion:reduce){.seg .pill,.burger i,.burger::before,.burger::after{transition:none}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}.step,.step+.step{padding:1.5rem 0;border-right:0;border-bottom:1px solid var(--rule)}}
 </style>
-<script>
-  // Turn on scroll animations only if supported and the visitor allows motion.
-  if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    document.documentElement.classList.add("reveal-on");
-    setTimeout(function () { if (!window.__revealReady) document.documentElement.classList.remove("reveal-on"); }, 3000);
-  }
-</script>
-<script src="reveal.js?v=1" defer></script>
 </head>
 <body>
 
-<header>
+
+<div id="cur" aria-hidden="true"></div>
+
+<nav>
   <div class="wrap">
-    <a class="brand" href="#top">DIGITAL <span>FOREMAN</span></a>
-    <nav aria-label="Main">
-      <a href="#scope">What you get</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#process">How it works</a>
-      <a class="btn btn-blue" href="#contact">Book Now</a>
-    </nav>
+    <a class="brand" href="#top" aria-label="Digital Foreman home"><i class="mark" aria-hidden="true"></i><span>Digital</span>Foreman</a>
+    <div class="navr">
+      <div class="seg" id="seg" role="navigation" aria-label="Page sections">
+        <span class="pill" aria-hidden="true"></span>
+        <a href="#scope" data-sec="scope"><span class="dot"></span>Scope</a>
+        <a href="#pricing" data-sec="pricing"><span class="dot"></span>Pricing</a>
+        <a href="#process" data-sec="process"><span class="dot"></span>Process</a>
+      </div>
+      <a class="cta-pill" href="#book" data-magnetic>Book a call <i data-lucide="arrow-down-right"></i></a>
+      <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="mpanel"><span class="burger"><i></i></span>Menu</button>
+    </div>
+  </div>
+  <div class="mpanel" id="mpanel" hidden>
+    <a href="#scope">Scope <span>What's included</span></a>
+    <a href="#pricing">Pricing <span>From $59/mo</span></a>
+    <a href="#process">Process <span>4 steps</span></a>
+    <a class="go" href="#book">Book a call <span>Free</span></a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="meta">
+      <span class="mono hv">Built by a contractor</span>
+      <span class="mono dust">Myrtle Beach, SC</span>
+      <span class="mono dust">Serving contractors anywhere in the U.S.</span>
+    </div>
+    <h1>
+      <span class="ln"><span style="--i:0">Your website,</span></span>
+      <span class="ln"><span style="--i:1" class="out">run like a</span></span>
+      <span class="ln"><span style="--i:2">job site.</span></span>
+    </h1>
+    <div class="hgrid">
+      <div>
+        <p class="lede">We build and manage websites for contractors and local service businesses. We set it up, keep it running and make the changes, so your phone rings and you stay on the job.</p>
+        <div class="ctas">
+          <a class="btn" href="#book" data-magnetic>Book a free consultation <i data-lucide="arrow-down-right"></i></a>
+          <a class="btn ghost" href="#pricing" data-magnetic>See pricing</a>
+        </div>
+      </div>
+      <figure class="logo-panel" data-tilt role="img" aria-label="Digital Foreman logo: a hard hat drawn as a website grid with a rising arrow"></figure>
+    </div>
   </div>
 </header>
 
-<main id="top">
-  <img class="hero-img" src="images/digital-foreman-logo.jpg" alt="Digital Foreman logo: a hard hat drawn as a website grid with a rising arrow, on a concrete wall">
-
-  <div class="wrap">
-    <div class="hero-copy">
-      <h1 data-reveal="left">Your website, run like a <em>job site.</em></h1>
-      <div class="hero-side" data-reveal="right">
-        <p>Digital Foreman builds and manages websites for contractors and local service businesses, wherever you work. We set it up, keep it running and make the changes, so your phone rings and you stay on the job.</p>
-        <div class="cta-row">
-          <a class="btn btn-blue" href="#contact">Book a free consultation</a>
-          <a class="btn btn-ghost" href="#pricing">See pricing</a>
-        </div>
-      </div>
-    </div>
+<div class="ticker" aria-label="What every site includes">
+  <div class="track">
+    <span>Tap-to-call</span><span>Quote form</span><span>Secure padlock</span><span>Fast on a phone</span><span>Found on Google</span><span>Missed-call text-back</span>
+    <span aria-hidden="true">Tap-to-call</span><span aria-hidden="true">Quote form</span><span aria-hidden="true">Secure padlock</span><span aria-hidden="true">Fast on a phone</span><span aria-hidden="true">Found on Google</span><span aria-hidden="true">Missed-call text-back</span>
   </div>
+</div>
 
-  <section id="scope">
-    <div class="wrap">
-      <div class="sec-head" data-reveal>
-        <span class="tag">Scope of work</span>
-        <h2>Everything a local business site needs. Nothing it doesn't.</h2>
-        <p>Flat prices you can see up front. No long-term contracts, and nothing you didn't ask for.</p>
-      </div>
-      <div class="scope">
-        <div data-reveal><h3>Built around the phone call</h3><p>Tap-to-call on every page, a booking form that lands in your inbox, your license number where customers look for it, and an optional text-back for calls you miss.</p></div>
-        <div data-reveal><h3>Your work, front and center</h3><p>Real photos of your real jobs. No stock pictures, no mockups passed off as finished work.</p></div>
-        <div data-reveal><h3>Your domain, done right</h3><p>Domain connected, secure padlock on with and without "www", and business email forwarding set up and tested.</p></div>
-        <div data-reveal><h3>Fast on a phone</h3><p>Most of your customers find you on their phone. Every page is checked on one before it goes live.</p></div>
-        <div data-reveal><h3>Found on Google</h3><p>Your services and towns written into the pages, so people searching nearby can find you.</p></div>
-        <div data-reveal><h3>Changes without the runaround</h3><p>New photos, new service, new hours. Send it over and it gets done. You never touch the back end.</p></div>
+<main class="wrap">
+  <section class="chapter" id="scope">
+    <div class="chead reveal">
+      <span class="mono dust">Scope of work</span>
+      <div><h2>Everything a local business site needs. Nothing it doesn't.</h2>
+      <p>Flat prices you can see up front. No long-term contracts, and nothing you didn't ask for.</p></div>
+    </div>
+    <div class="scope">
+      <div class="srow reveal"><span class="mono dust">Calls</span><h3>Built around the phone call</h3><p>Tap-to-call on every page, a booking form that lands in your inbox, your license number where customers look for it.</p></div>
+      <div class="srow reveal"><span class="mono dust">Photos</span><h3>Your work, front and center</h3><p>Real photos of your real jobs. No stock pictures, no mockups passed off as finished work.</p></div>
+      <div class="srow reveal"><span class="mono dust">Domain</span><h3>Your domain, done right</h3><p>Domain connected, secure padlock on with and without "www", business email forwarding set up and tested.</p></div>
+      <div class="srow reveal"><span class="mono dust">Speed</span><h3>Fast on a phone</h3><p>Most of your customers find you on their phone. Every page is checked on one before it goes live.</p></div>
+      <div class="srow reveal"><span class="mono dust">Search</span><h3>Found on Google</h3><p>Your services and towns written into the pages, so people searching nearby can find you.</p></div>
+      <div class="srow reveal"><span class="mono dust">Changes</span><h3>Changes without the runaround</h3><p>New photos, new service, new hours. Send it over and it gets done. You never touch the back end.</p></div>
+    </div>
+  </section>
+
+  <section class="chapter" id="pricing" style="padding-top:0">
+    <div class="chead reveal">
+      <span class="mono dust">Pricing</span>
+      <div><h2>Start with the website. Add the back office when you're ready.</h2></div>
+    </div>
+    <div class="intro reveal">
+      <span class="mono hv">Introductory rate</span>
+      <span class="mono">Sign up by Jan 31, 2027 · intro monthly rate for your first 6 months</span>
+    </div>
+    <div class="ledger">
+      <article class="tier lead" data-tilt>
+        <span class="mono hv">Full contractor system</span>
+        <h3>Grand Finale</h3>
+        <div class="price"><b>$249</b><span class="mono">/mo</span><s>$299</s></div>
+        <ul>
+          <li>Everything in Pro</li>
+          <li>Automated follow-up at every stage, from new lead to finished job</li>
+          <li>Crew job board so your team sees every job's details</li>
+          <li>Automations connecting your tools so nothing gets typed twice</li>
+          <li>Payments log that tracks every payment as it comes in</li>
+          <li>Monthly check-in call</li>
+        </ul>
+        <div class="foot mono dust">$3,192 setup · $3,000 paid in full</div>
+      </article>
+      <article class="tier" data-tilt>
+        <span class="mono dust">Full contractor system</span>
+        <h3>Pro</h3>
+        <div class="price"><b>$149</b><span class="mono">/mo</span><s>$199</s></div>
+        <ul><li>Everything in Growth, including the website build</li><li>Business phone line with AI answering</li><li>CRM with your pipeline and follow-up texts and emails</li><li>Leads from your site and ads routed in automatically</li></ul>
+        <div class="foot mono dust">$1,597 setup · $1,500 paid in full</div>
+      </article>
+      <article class="tier" data-tilt>
+        <span class="mono dust">Website plans</span>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
+          <div><h3>Basic</h3><div class="price"><b>$59</b><span class="mono">/mo</span><s>$79</s></div></div>
+          <div><h3>Growth</h3><div class="price"><b>$99</b><span class="mono">/mo</span><s>$129</s></div></div>
+        </div>
+        <ul><li>Hosting, HTTPS and 24/7 monitoring</li><li>Growth adds monthly project photos and new town pages</li></ul>
+        <div class="foot mono dust">$532 setup · $500 paid in full</div>
+      </article>
+    </div>
+    <div class="setup reveal">
+      <span class="mono dust">Setup fees: pay in full by check or card for the lower price, or split into 4 payments with Afterpay</span>
+      <span class="mono dust">Started on Basic or Growth? Upgrade within 6 months and your setup fee counts toward the new one</span>
+    </div>
+    <div class="addons">
+      <article class="tier reveal">
+        <span class="mono dust">Add-on</span>
+        <h3>Missed-call text-back</h3>
+        <p style="margin:0;color:#4A5B76">Can't pick up on a ladder? Every missed call gets an automatic text with a link to book on your website. Works on Android phones today; iPhone setup on request. No monthly fee.</p>
+        <div class="price"><b>$79</b><span class="mono">one time</span></div>
+      </article>
+      <article class="tier reveal">
+        <span class="mono hv">DripJobs CRM setup</span>
+        <h3>We set up DripJobs for you</h3>
+        <p style="margin:0;color:#4A5B76">DripJobs is the CRM we run our own contracting company on. We build your pipeline, follow-up drips, proposal templates, texting and card payments, so leads get followed up automatically. Optional management for $97/mo. Use code <b>DF30</b> when you sign up.</p>
+        <div class="price"><b>$497</b><span class="mono">one time</span></div>
+        <div class="ctas" style="margin-top:0"><a class="btn" href="https://dripjobs.com?ref=digitalforeman" target="_blank" rel="noopener">Get DripJobs <i data-lucide="arrow-up-right"></i></a><a class="btn ghost" href="#book">Book my setup</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="show reveal">
+    <div>
+      <span class="mono hv">Premium upgrade</span>
+      <h2 style="font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(2.2rem,5vw,4rem);line-height:.98;letter-spacing:-.03em;margin:1.25rem 0">Showcase: your work builds itself as they scroll.</h2>
+      <p style="color:#33476A;max-width:46ch">Visitors watch your project come together step by step, then land on your quote button. Built around your real job photos.</p>
+      <div class="price" style="margin-top:2rem"><b>$2,661</b><span class="mono dust">one time · replaces the $532 setup</span></div>
+      <p style="color:#4A5B76;max-width:46ch;margin:.75rem 0 0">Pay in full by check or card and it's $2,500, or split it into 4 payments with Afterpay. On Pro or Grand Finale, add Showcase for $2,000.</p>
+      <div class="ctas"><a class="btn" href="/demo/simply-enclosures/" data-magnetic>See a live demo <i data-lucide="arrow-up-right"></i></a><a class="btn ghost" href="#book">Ask about Showcase</a></div>
+    </div>
+    <div style="display:flex;align-items:center">
+      <div style="width:100%">
+        <span class="mono dust">Scroll build, preview</span>
+        <div class="stack" aria-hidden="true" style="margin-top:1.25rem"><i></i><i></i><i></i><i></i><i></i></div>
       </div>
     </div>
   </section>
 
-  <section id="pricing" class="pricing">
-    <div class="wrap">
-      <div class="sec-head" data-reveal>
-        <span class="tag">Pricing</span>
-        <h2>Start with the website. Add the back office when you're ready.</h2>
-        <p>Every plan starts with the same website build. Pick how much you want handled, from a site that just works up to the full system we run our own contracting business on.</p>
-      </div>
-
-      <div class="intro" data-reveal>
-        <strong>Introducing Digital Foreman</strong>
-        <p>Sign up by January 31, 2027 and get our introductory monthly rate for your first 6 months. After that, your plan goes to the regular price.</p>
-      </div>
-
-      <div class="setup" data-reveal>
-        <strong>Website setup <small style="font-size:.85rem;font-weight:600;color:#A9C4E4">for Basic and Growth</small></strong>
-        <span class="amt">$532 <small>one time</small></span>
-        <p>Design, build, domain connection, secure HTTPS, quote form, email forwarding and the full go-live checklist. <strong>Pay in full by check or card and it&rsquo;s $500.</strong> Or split the $532 into 4 payments with Afterpay.</p>
-      </div>
-
-      <div class="plans">
-        <article class="plan" data-reveal>
-          <div class="plan-top"><h3>Basic</h3><span class="price"><s class="was">$79</s>$59<small>/mo</small></span></div>
-          <p class="who">For businesses that need a solid site that just works. <span class="intro-note">Intro rate for 6 months, then $79/mo.</span></p>
-          <ul>
-            <li>Hosting and secure HTTPS kept current</li>
-            <li>24/7 monitoring: your site is checked every 5 minutes, and if it ever goes down we're alerted right away and on it</li>
-            <li>Quote form and email forwarding monitored</li>
-            <li>Small text and photo edits each month</li>
-            <li>Direct line to the person who built it</li>
-          </ul>
-        </article>
-        <article class="plan pick" data-reveal>
-          <div class="plan-top"><h3>Growth</h3><span class="price"><s class="was">$129</s>$99<small>/mo</small></span></div>
-          <p class="who">For businesses that want the site working harder for leads. <span class="intro-note">Intro rate for 6 months, then $129/mo.</span></p>
-          <ul>
-            <li>Everything in Basic</li>
-            <li>New project photos added every month</li>
-            <li>Service and town pages added as you grow</li>
-            <li>Monthly check that your forms, calls and email are all working</li>
-            <li>Priority turnaround on changes</li>
-          </ul>
-        </article>
-      </div>
-
-      <div class="showcase" id="showcase" data-reveal>
-        <div>
-          <span class="tag">Premium website upgrade</span>
-          <h3>Showcase: your work builds itself as they scroll</h3>
-          <p>Instead of a standard page, visitors watch your project come together step by step as they scroll, then land on your quote button. Built around your real job photos. Made to stand out from every other contractor in town.</p>
-          <ul>
-            <li>Custom scroll-build animation for your trade</li>
-            <li>Real job photo gallery, no stock photos</li>
-            <li>Tap-to-call bar and quote form on every phone</li>
-            <li>Works with any monthly plan above</li>
-          </ul>
-        </div>
-        <div class="showcase-price">
-          <span class="amt">$2,661 <small>one time</small></span>
-          <p>Replaces the $532 website setup. <strong style="color:#fff">Pay in full by check or card and it&rsquo;s $2,500.</strong> Or split it into 4 payments with Afterpay. On Pro or Grand Finale, add Showcase for $2,000.</p>
-          <a class="btn btn-blue" href="/demo/simply-enclosures/" target="_blank" rel="noopener">See a live demo</a>
-          <a class="btn btn-ghost" style="color:#fff;box-shadow:inset 0 0 0 2px #fff" href="#contact">Ask about Showcase</a>
-        </div>
-      </div>
-
-      <div class="sys-head" data-reveal>
-        <span class="tag">Full contractor system</span>
-        <h3>Your website, phone, CRM and follow-up, set up and kept running.</h3>
-        <p>The same back-office system we run our own contracting business on, built for yours. You keep and pay for your own tools (phone line, CRM, automations); we set them up, connect them and keep an eye on them every month.</p>
-      </div>
-
-      <div class="plans">
-        <article class="plan" data-reveal>
-          <div class="plan-top"><h3>Pro</h3><span class="price"><s class="was">$199</s>$149<small>/mo</small></span></div>
-          <p class="plan-setup">$1,597 one-time setup <small>($1,500 paid in full by check or card, or 4 Afterpay payments)</small></p>
-          <p class="who">For contractors who want every call and lead caught and tracked. <span class="intro-note">Intro rate for 6 months, then $199/mo.</span></p>
-          <ul>
-            <li>Everything in Growth, including the website build</li>
-            <li>Business phone line with AI answering set up</li>
-            <li>CRM set up with your services, pipeline and follow-up texts and emails</li>
-            <li>Online booking form that drops leads straight into your CRM</li>
-            <li>Leads from your site and ads routed in automatically</li>
-            <li>Monthly monitoring of your phone, CRM and booking, and fixes when something breaks</li>
-          </ul>
-        </article>
-        <article class="plan" data-reveal>
-          <div class="plan-top"><h3>Grand Finale</h3><span class="price"><s class="was">$299</s>$249<small>/mo</small></span></div>
-          <p class="plan-setup">$3,192 one-time setup <small>($3,000 paid in full by check or card, or monthly with Afterpay)</small></p>
-          <p class="who">For contractors who want the whole back office running for them. <span class="intro-note">Intro rate for 6 months, then $299/mo.</span></p>
-          <ul>
-            <li>Everything in Pro</li>
-            <li>Automated follow-up at every stage, from new lead to finished job</li>
-            <li>Crew job board so your team sees every job's details</li>
-            <li>Automations connecting your tools so nothing gets typed twice</li>
-            <li>Payments log that tracks every payment as it comes in</li>
-            <li>Monthly check-in call to review how it's all running</li>
-          </ul>
-        </article>
-      </div>
-
-      <p class="upgrade-note" data-reveal>Started on Basic or Growth? Upgrade to Pro or Grand Finale within 6 months and your website setup fee counts toward the new setup fee.</p>
-
-      <div class="addon" data-reveal>
-        <div class="addon-copy">
-          <span class="tag">Add-on</span>
-          <h3>Missed-call text-back</h3>
-          <p>Can't pick up on a ladder? Every missed call gets an automatic text back with a link to book on your website. Works on Android phones today; iPhone setup on request. No monthly fee.</p>
-        </div>
-        <span class="amt">$79 <small>one time</small></span>
-      </div>
-
-      <div class="addon" id="dripjobs" data-reveal>
-        <div class="addon-copy">
-          <span class="tag">DripJobs CRM setup</span>
-          <h3>We set up DripJobs for you</h3>
-          <p>DripJobs is the CRM we run our own contracting company on. We build your pipeline, follow-up drips, proposal templates, texting and card payments, so leads get followed up automatically. Optional management for $97/mo. Use code DF30 when you sign up.</p>
-          <p style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
-            <a class="btn btn-blue" href="https://dripjobs.com?ref=digitalforeman" target="_blank" rel="noopener">Get DripJobs</a>
-            <a class="btn btn-ghost" href="#contact">Book my setup</a>
-          </p>
-        </div>
-        <span class="amt">$497 <small>one time</small></span>
-      </div>
+  <section class="chapter" id="process">
+    <div class="chead reveal">
+      <span class="mono dust">How it works</span>
+      <div><h2>Same way you'd run a job.</h2></div>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><span class="n">01 / Walkthrough</span><h3>Walkthrough</h3><p>A short call about your business, your services, your service area and what a good lead looks like.</p></div>
+      <div class="step reveal"><span class="n">02 / Build</span><h3>Build</h3><p>You send your photos and logo. We build the site and send a preview link to mark up.</p></div>
+      <div class="step reveal"><span class="n">03 / Inspection</span><h3>Final inspection</h3><p>Domain, padlock, tap-to-call, quote form and email all tested on a phone before anything goes live.</p></div>
+      <div class="step reveal"><span class="n">04 / Maintenance</span><h3>Maintenance</h3><p>Your monthly plan keeps it running. Need a change? Text or email it and it gets handled.</p></div>
     </div>
   </section>
 
-  <section id="process">
-    <div class="wrap">
-      <div class="sec-head" data-reveal>
-        <span class="tag">How it works</span>
-        <h2>Same way you'd run a job.</h2>
-      </div>
-      <div class="steps">
-        <div class="step" data-reveal><span class="tag"></span><h3>Walkthrough</h3><p>A short call about your business, your services, your service area and what a good lead looks like.</p></div>
-        <div class="step" data-reveal><span class="tag"></span><h3>Build</h3><p>You send your photos and logo. We build the site and send you a preview link to mark up.</p></div>
-        <div class="step" data-reveal><span class="tag"></span><h3>Final inspection</h3><p>Domain, padlock, tap-to-call, quote form and email all tested on a phone before anything goes live.</p></div>
-        <div class="step" data-reveal><span class="tag"></span><h3>Maintenance</h3><p>Your monthly plan keeps it running. Need a change? Text or email it and it gets handled.</p></div>
-      </div>
+  <section class="about reveal">
+    <div class="huge">20<span>+</span></div>
+    <div>
+      <span class="mono dust">Years in the trades · Tom Shipley</span>
+      <p class="q">We know what a lead is worth.</p>
+      <p>Digital Foreman was started by Tom Shipley, a South Carolina contractor with hundreds of completed projects. He builds sites the way he'd want his own: simple, quick to load and set up to get the phone ringing.</p>
     </div>
   </section>
 
-  <section class="about">
-    <div class="wrap">
-      <div class="stat" data-reveal="left">20+<small>Years in the trades</small></div>
-      <div class="about-body" data-reveal="right">
-        <span class="tag">Built by a contractor</span>
-        <h2>We know what a lead is worth.</h2>
-        <p>Digital Foreman was started by Tom Shipley, a South Carolina contractor with more than 20 years and hundreds of completed projects behind him. He builds sites the way he'd want his own: simple to use, quick to load, and set up to get the phone ringing.</p>
-        <p>No agency jargon, no year-long contracts. Just a site that works and someone who answers when you call.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="wrap">
-      <div class="contact-grid">
-        <div class="contact-info">
-          <div class="sec-head" data-reveal style="margin-bottom:8px">
-            <span class="tag">Book Now</span>
-            <h2>Book your free consultation.</h2>
-            <p>Pick a day and time that works. We'll talk through your business, look at what you have now and give you a plan and a price for your website.</p>
-          </div>
-          <div class="info-row"><span class="tag">Email</span><span class="val">info@digitalforeman.org</span></div>
-          <div class="info-row"><span class="tag">Based in</span><span class="val">Myrtle Beach, South Carolina</span></div>
-          <div class="info-row"><span class="tag">Serving</span><span class="val">Contractors and local businesses anywhere in the U.S.</span></div>
+  <section class="final" id="book">
+    <span class="mono hv">Book now</span>
+    <h2>Book your free consultation.</h2>
+    <div class="bookgrid">
+      <p style="color:#33476A;max-width:44ch;margin:0">Pick a day and time that works. We'll talk through your business, look at what you have now and give you a plan and a price for your website.</p>
+      <form class="bform" id="quote" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="a8bd8087-d9c3-45ed-81a1-c68302d9fceb">
+        <input type="hidden" name="subject" value="New Book Now request - Digital Foreman">
+        <input type="hidden" name="from_name" value="Digital Foreman website">
+        <input type="hidden" name="redirect" value="https://digitalforeman.org/thanks.html">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="row2">
+          <label for="f-name">Your name<input id="f-name" name="name" autocomplete="name" required></label>
+          <label for="f-biz">Business name<input id="f-biz" name="business" required></label>
         </div>
-
-        <form id="quote" data-reveal="right" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="a8bd8087-d9c3-45ed-81a1-c68302d9fceb">
-          <input type="hidden" name="subject" value="New Book Now request - Digital Foreman">
-          <input type="hidden" name="from_name" value="Digital Foreman website">
-          <input type="hidden" name="redirect" value="https://digitalforeman.org/thanks.html">
-          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-          <div class="row2">
-            <label for="f-name">Your name<input id="f-name" name="name" autocomplete="name" required></label>
-            <label for="f-biz">Business name<input id="f-biz" name="business" required></label>
-          </div>
-          <div class="row2">
-            <label for="f-phone">Phone<input id="f-phone" name="phone" type="tel" autocomplete="tel" required></label>
-            <label for="f-email">Email<input id="f-email" name="email" type="email" autocomplete="email"></label>
-          </div>
-          <div class="row2">
-            <label for="f-day">Preferred day<input id="f-day" name="day" type="date" required></label>
-            <label for="f-time">Preferred time
-              <select id="f-time" name="time">
-                <option>Morning (8–11 am)</option>
-                <option>Midday (11 am–2 pm)</option>
-                <option>Afternoon (2–5 pm)</option>
-                <option>Evening (5–7 pm)</option>
-              </select>
-            </label>
-          </div>
-          <label for="f-site">Do you have a website now?
-            <select id="f-site" name="current">
-              <option>No website yet</option>
-              <option>Yes, but it's outdated</option>
-              <option>Yes, I just want it managed</option>
-            </select>
+        <div class="row2">
+          <label for="f-phone">Phone<input id="f-phone" name="phone" type="tel" autocomplete="tel" required></label>
+          <label for="f-email">Email<input id="f-email" name="email" type="email" autocomplete="email"></label>
+        </div>
+        <div class="row2">
+          <label for="f-day">Preferred day<input id="f-day" name="day" type="date" required></label>
+          <label for="f-time">Preferred time
+            <select id="f-time" name="time"><option>Morning (8–11 am)</option><option>Midday (11 am–2 pm)</option><option>Afternoon (2–5 pm)</option><option>Evening (5–7 pm)</option></select>
           </label>
-          <label for="f-msg">What kind of work do you do?<textarea id="f-msg" name="message" placeholder="Roofing, painting, landscaping, HVAC..."></textarea></label>
-          <button class="btn btn-blue" type="submit">Book my consultation</button>
-          <p class="note">Free, no obligation. We'll confirm your time by phone or email.</p>
-        </form>
-      </div>
+        </div>
+        <label for="f-site">Do you have a website now?
+          <select id="f-site" name="current"><option>No website yet</option><option>Yes, but it's outdated</option><option>Yes, I just want it managed</option></select>
+        </label>
+        <label for="f-msg">What kind of work do you do?<textarea id="f-msg" name="message" placeholder="Roofing, painting, landscaping, HVAC..."></textarea></label>
+        <button class="btn" type="submit">Book my consultation</button>
+        <p class="mono dust" style="margin:0">Free, no obligation. We'll confirm your time by phone or email.</p>
+      </form>
+    </div>
+    <div class="contact">
+      <dl><dt class="mono dust">Email</dt><dd>info@digitalforeman.org</dd></dl>
+      <dl><dt class="mono dust">Based in</dt><dd>Myrtle Beach, South Carolina</dd></dl>
+      <dl><dt class="mono dust">Serving</dt><dd>Contractors anywhere in the U.S.</dd></dl>
     </div>
   </section>
 </main>
 
-<footer>
-  <div class="wrap">
-    <span>© 2026 Digital Foreman · Myrtle Beach, SC</span>
-    <span><a href="support.html" style="color:inherit;font-weight:600">Client support</a> · <a href="privacy.html" style="color:inherit">Privacy</a> · digitalforeman.org</span>
-  </div>
+<footer class="wrap">
+  <span class="mono dust">© Digital Foreman</span>
+  <span class="mono dust"><a href="support.html">Client support</a> · <a href="privacy.html">Privacy</a> · info@digitalforeman.org</span>
 </footer>
 
+<script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+  try{ if(window.lucide) lucide.createIcons(); }catch(e){}
+
+  // segmented section toggle: sliding pill follows the section in view
+  var seg=document.getElementById('seg'), pill=seg.querySelector('.pill'), links=[].slice.call(seg.querySelectorAll('a'));
+  function setOn(id){
+    var hit=null;
+    links.forEach(function(a){var m=a.getAttribute('data-sec')===id;a.classList.toggle('on',m);if(m){hit=a;a.setAttribute('aria-current','true');}else a.removeAttribute('aria-current');});
+    if(hit){pill.style.width=hit.offsetWidth+'px';pill.style.transform='translateX('+hit.offsetLeft+'px)';pill.style.opacity=1;}
+    else pill.style.opacity=0;
+  }
+  links.forEach(function(a){a.addEventListener('click',function(){setOn(a.getAttribute('data-sec'))})});
+  if('IntersectionObserver' in window){
+    var activeSec=null, sio=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting) activeSec=e.target.id; else if(activeSec===e.target.id) activeSec=null; });
+      setOn(activeSec);
+    },{rootMargin:'-45% 0px -50% 0px'});
+    ['scope','pricing','process'].forEach(function(id){var s=document.getElementById(id);if(s)sio.observe(s)});
+  }
+  addEventListener('resize',function(){var a=seg.querySelector('a.on');if(a)setOn(a.getAttribute('data-sec'))});
+
+  // phone menu
+  var mb=document.getElementById('menu-btn'), mp=document.getElementById('mpanel');
+  function setMenu(open){mb.setAttribute('aria-expanded',open?'true':'false');mp.hidden=!open;}
+  mb.addEventListener('click',function(){setMenu(mp.hidden)});
+  mp.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
+  addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false)});
+  addEventListener('resize',function(){if(innerWidth>900)setMenu(false)});
+  var rm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine = matchMedia('(pointer: fine)').matches;
+  if(!rm && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('pre');io.unobserve(e.target);}})},{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(function(el,i){
+      if(el.getBoundingClientRect().top > innerHeight){el.classList.add('pre');el.style.transitionDelay=(i%3)*90+'ms';io.observe(el);}
+    });
+  }
+  if(rm || !fine) return;
+  var cur=document.getElementById('cur'),mx=-100,my=-100,cx=-100,cy=-100,snap=null;
+  var mags=[].slice.call(document.querySelectorAll('[data-magnetic]'));
+  mags.forEach(function(el){el.style.transition='transform .35s cubic-bezier(.2,.7,.1,1)';if(getComputedStyle(el).display==='inline')el.style.display='inline-block';});
+  addEventListener('mousemove',function(e){
+    mx=e.clientX;my=e.clientY;snap=null;
+    mags.forEach(function(el){
+      var r=el.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2,dx=mx-x,dy=my-y;
+      if(Math.abs(dx)<r.width/2+40&&Math.abs(dy)<r.height/2+40){el.style.transform='translate('+dx*.25+'px,'+dy*.35+'px)';snap={x:x+dx*.25,y:y+dy*.35};}
+      else el.style.transform='';
+    });
+  });
+  document.querySelectorAll('a,button,[data-tilt]').forEach(function(el){
+    el.addEventListener('mouseenter',function(){cur.classList.add('on')});
+    el.addEventListener('mouseleave',function(){cur.classList.remove('on')});
+  });
+  (function loop(){var tx=snap?snap.x:mx,ty=snap?snap.y:my;cx+=(tx-cx)*.2;cy+=(ty-cy)*.2;cur.style.transform='translate('+cx+'px,'+cy+'px)';requestAnimationFrame(loop)})();
+  document.querySelectorAll('[data-tilt]').forEach(function(el){
+    el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;el.style.transform='perspective(1000px) rotateY('+px*7+'deg) rotateX('+(-py*7)+'deg)';});
+    el.addEventListener('mouseleave',function(){el.style.transform=''});
+  });
+})();
+</script>
 
 </body>
 </html>
