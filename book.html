@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Book a Call | Digital Foreman</title>
+<meta name="description" content="I'm a contractor. I built the system that runs my companies: website, booking, AI answering and automatic follow-up. Book a free 30-minute call and I'll show you how it works.">
+<link rel="canonical" href="https://digitalforeman.org/book">
+<link rel="icon" type="image/png" href="images/df-hat.png">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Run your contracting business like a well-oiled machine">
+<meta property="og:description" content="Free website with a Book Now button when you sign up on the call. $59/month, locked for a year.">
+<meta property="og:url" content="https://digitalforeman.org/book">
+<meta property="og:image" content="https://digitalforeman.org/images/df-logo-cutout.png">
+<style>
+:root{--bg:#EEF0F1;--card:#FFFFFF;--navy:#0B2A55;--muted:#5E6E86;--rule:#CCD3DC;--blue:#1877D2;--display:'Syne','Arial Black',Impact,sans-serif;--body:'Inter Tight','Segoe UI',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,Consolas,monospace}
+*{box-sizing:border-box}
+html,body{margin:0;overflow-x:clip}
+body{background:var(--bg);color:var(--navy);font-family:var(--body);font-size:18px;line-height:1.55}
+a{color:var(--blue)}
+img{max-width:100%;display:block}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header.top{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;max-width:1040px;margin:0 auto}
+header.top img{height:44px;width:auto}
+.btn{display:inline-block;background:var(--blue);color:#fff;text-decoration:none;font-weight:700;padding:16px 26px;border-radius:999px;font-size:18px;box-shadow:0 6px 18px rgba(24,119,210,.3)}
+.btn:hover{background:#0f63b5}
+.btn.small{padding:10px 18px;font-size:15px;box-shadow:none}
+.kicker{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin:0 0 10px}
+h1,h2,h3{font-family:var(--display);line-height:1.08;margin:0 0 14px}
+h1{font-size:clamp(2.1rem,6vw,3.6rem)}
+h2{font-size:clamp(1.6rem,4vw,2.4rem)}
+h3{font-size:1.2rem}
+section{padding:56px 0}
+.hero{padding:28px 0 56px}
+.hero p.lead{font-size:clamp(1.1rem,2.4vw,1.35rem);max-width:720px;color:#20385e}
+.hero .cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:24px}
+.hero .note{font-size:15px;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:24px}
+.grid{display:grid;gap:18px}
+.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.pain li{margin:8px 0}
+ul.check{list-style:none;padding:0;margin:0}
+ul.check li{padding-left:30px;position:relative;margin:10px 0}
+ul.check li:before{content:"✓";position:absolute;left:0;top:0;color:var(--blue);font-weight:800}
+.story{background:var(--navy);color:#fff}
+.story h2{color:#fff}
+.story p{color:#dfe6f0;max-width:760px}
+.story .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:28px}
+.story .stat{border:1px solid rgba(255,255,255,.25);border-radius:14px;padding:18px}
+.story .stat b{display:block;font-family:var(--display);font-size:1.7rem;color:#fff}
+.story .stat span{font-size:15px;color:#c9d4e3}
+.proof a.site{display:block;text-decoration:none;color:var(--navy)}
+.proof .tag{font-family:var(--mono);font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.offer{border:3px solid var(--blue);background:#fff;border-radius:20px;padding:30px}
+.offer .price{font-family:var(--display);font-size:clamp(2.4rem,7vw,3.6rem);line-height:1}
+.offer .price small{font-size:1.1rem;font-family:var(--body);color:var(--muted)}
+.offer .strike{text-decoration:line-through;color:var(--muted)}
+.steps .num{font-family:var(--mono);color:var(--blue);font-size:14px}
+details{background:#fff;border:1px solid var(--rule);border-radius:12px;padding:16px 20px;margin:10px 0}
+summary{font-weight:700;cursor:pointer}
+details p{margin:10px 0 0;color:#20385e}
+#book{background:#fff;border-top:1px solid var(--rule)}
+.calendly-inline-widget{min-width:300px;height:760px;border-radius:14px;overflow:hidden}
+footer{padding:28px 20px;text-align:center;font-size:14px;color:var(--muted)}
+.sticky{position:fixed;left:0;right:0;bottom:0;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);border-top:1px solid var(--rule);display:none;justify-content:center;z-index:20}
+@media (max-width:700px){.sticky{display:flex}body{padding-bottom:76px}section{padding:44px 0}.calendly-inline-widget{height:1000px}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a href="/" aria-label="Digital Foreman home"><img src="images/df-logo-cutout.png" alt="Digital Foreman"></a>
+  <a class="btn small" href="#book">Book a call</a>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="kicker">Built by a contractor, for contractors</p>
+    <h1>I'm a contractor. I spent months figuring out the system that runs my companies. Now I'll set it up for you.</h1>
+    <p class="lead">Website with online booking, AI that answers your phone, and follow-up texts and emails that go out on their own. My contracting companies run on it every day, like a well-oiled machine.</p>
+    <div class="cta-row">
+      <a class="btn" href="#book">Book a free 30-minute call</a>
+      <span class="note">On Zoom · Evenings 4–8 PM Eastern · 7 days a week</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="kicker">Sound familiar?</p>
+    <h2>You're great at the work. The office stuff is what's killing you.</h2>
+    <div class="grid g3" style="margin-top:22px">
+      <div class="card"><h3>Missed calls</h3><p>You're on a ladder when the phone rings. That customer calls the next contractor on Google.</p></div>
+      <div class="card"><h3>Leads that go cold</h3><p>You send the estimate, then life gets busy. No follow-up, no job.</p></div>
+      <div class="card"><h3>Too many apps</h3><p>A website here, a CRM there, an answering service that doesn't know your business. Nothing talks to each other.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="wrap">
+    <p class="kicker" style="color:#8cc2ff">My story</p>
+    <h2>I tried the software, the AI tools and the answering services so you don't have to.</h2>
+    <p>I'm Tom Shipley. I run two contracting companies in Myrtle Beach, South Carolina: Simply Crafted Construction and Simply Enclosures. For a long time I struggled to find the right software, the right AI automations and an answering service that actually worked. I spent weeks, then months, testing setups that didn't fit a contractor. So I figured it out myself, and I learned to build it like a pro.</p>
+    <p>Now my leads come in from the website and ads, get answered and followed up automatically, and land in one place. My crew sees the job details without me typing anything twice. I proved it works on my own business first. Digital Foreman is that same system, set up for you, for a lot less than anyone else charges.</p>
+    <div class="stats">
+      <div class="stat"><b>5</b><span>live websites we build and manage today</span></div>
+      <div class="stat"><b>24/7</b><span>AI answers our business line and books callers</span></div>
+      <div class="stat"><b>0</b><span>leads typed in by hand. They flow in automatically.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="proof">
+  <div class="wrap">
+    <p class="kicker">See it working</p>
+    <h2>Real contractor sites we run on this system</h2>
+    <div class="grid g2" style="margin-top:22px">
+      <a class="site card" href="https://simplyenclosuresmb.com/" target="_blank" rel="noopener">
+        <span class="tag">Screen rooms · Myrtle Beach</span>
+        <h3>Simply Enclosures</h3>
+        <p>Customers design their own screened porch with our online porch builder, then the design drops straight into our CRM as a lead.</p>
+        <p><b>Visit the site →</b></p>
+      </a>
+      <a class="site card" href="https://simplycraftedconstruction.com/" target="_blank" rel="noopener">
+        <span class="tag">Remodeling · Grand Strand</span>
+        <h3>Simply Crafted Construction</h3>
+        <p>Quote requests, booking, automatic follow-up and review requests after every finished job.</p>
+        <p><b>Visit the site →</b></p>
+      </a>
+    </div>
+    <p style="margin-top:18px;color:var(--muted)">On the call I'll walk you through both, live.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="kicker">What you get</p>
+    <h2>Everything a contractor needs to look pro and never miss a lead</h2>
+    <div class="grid g2" style="margin-top:22px">
+      <div class="card">
+        <h3>Your website</h3>
+        <ul class="check">
+          <li>Built around your real job photos</li>
+          <li>Book Now button so customers schedule themselves</li>
+          <li>Tap-to-call and quote form that work on a phone</li>
+          <li>Set up to get found on Google</li>
+          <li>Hosting, padlock and 24/7 monitoring included</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>When you're ready for more</h3>
+        <ul class="check">
+          <li>Business phone line with AI answering</li>
+          <li>CRM with automatic follow-up texts and emails</li>
+          <li>Leads from your site and ads routed in automatically</li>
+          <li>Crew job board and payments log</li>
+          <li>Review requests after every job</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="offer">
+      <p class="kicker">Call offer</p>
+      <h2>Sign up on the call and your website is free.</h2>
+      <p class="price">$59<small>/month, locked in for 12 months</small></p>
+      <ul class="check" style="margin-top:18px">
+        <li><b>Free website with a Book Now button</b> <span class="strike">$532 setup</span>, yours free when you sign up on the call</li>
+        <li><b>$59/month</b> for hosting, monitoring and changes, price locked for a full year</li>
+        <li><b>Upgrade to the full system within 6 months:</b> get a $500 credit toward the higher plan's setup, plus 50% off its monthly price</li>
+        <li>No long-term contract</li>
+      </ul>
+      <p style="margin-top:22px"><a class="btn" href="#book">Book my free call</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="steps">
+  <div class="wrap">
+    <p class="kicker">How it works</p>
+    <h2>Same way you'd run a job</h2>
+    <div class="grid g3" style="margin-top:22px">
+      <div class="card"><p class="num">01 / Walkthrough</p><h3>30-minute Zoom call</h3><p>We talk about your business, your services and your service area. I show you the system live.</p></div>
+      <div class="card"><p class="num">02 / Build</p><h3>We build it</h3><p>You send your photos and logo. We build your site and send a preview link.</p></div>
+      <div class="card"><p class="num">03 / Go live</p><h3>Leads start coming in</h3><p>Everything is tested on a phone before it goes live. Need a change later? Text it in.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="kicker">Questions</p>
+    <h2>Before you book</h2>
+    <details><summary>What happens on the call?</summary><p>A relaxed 30-minute Zoom. I'll ask how you get leads today, show you my own contractor websites and back office, and tell you what I'd set up for you. No pressure.</p></details>
+    <details><summary>Do I need to be good with computers?</summary><p>No. We build and run it for you. You keep doing the work you're good at.</p></details>
+    <details><summary>Am I locked into a contract?</summary><p>No long-term contract. Your $59/month price is locked for 12 months so it can't go up on you.</p></details>
+    <details><summary>I already have a website. Can I still do this?</summary><p>Yes. We can rebuild it so it actually books jobs, and move your domain over for you.</p></details>
+    <details><summary>What do I need to get started?</summary><p>Your logo if you have one, some photos of your best jobs, and the services and towns you cover. That's it.</p></details>
+    <details><summary>When can I book a call?</summary><p>Evenings, 4 to 8 PM Eastern, 7 days a week, so you can talk after work.</p></details>
+  </div>
+</section>
+
+<section id="book">
+  <div class="wrap">
+    <p class="kicker">Book your call</p>
+    <h2>Pick a time that works for you</h2>
+    <p style="color:var(--muted)">30 minutes on Zoom. The link comes in your confirmation email.</p>
+    <div class="calendly-inline-widget" data-url="https://calendly.com/shipleygroup1/30min?hide_gdpr_banner=1&primary_color=1877d2"></div>
+    <p style="font-size:15px;color:var(--muted)">Calendar not loading? <a href="https://calendly.com/shipleygroup1/30min" target="_blank" rel="noopener">Open the booking page</a> or email <a href="mailto:info@digitalforeman.org">info@digitalforeman.org</a>.</p>
+  </div>
+</section>
+
+<footer>
+  © Digital Foreman · A service of Simply Crafted Construction LLC · Myrtle Beach, SC · <a href="/privacy.html">Privacy</a>
+</footer>
+
+<div class="sticky"><a class="btn" href="#book" style="width:100%;text-align:center">Book a free call</a></div>
+
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</body>
+</html>
