@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://digitalforeman.org/book">
 <meta property="og:image" content="https://digitalforeman.org/images/df-logo-cutout.png">
 <style>
-:root{--bg:#EEF0F1;--card:#FFFFFF;--navy:#0B2A55;--muted:#5E6E86;--rule:#CCD3DC;--blue:#1877D2;--display:'Syne','Arial Black',Impact,sans-serif;--body:'Inter Tight','Segoe UI',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,Consolas,monospace}
+:root{--bg:#EEF0F1;--card:#FFFFFF;--navy:#0B2A55;--muted:#5E6E86;--rule:#CCD3DC;--blue:#1877D2;--cta:#EA580C;--cta-dark:#C2410C;--display:'Syne','Arial Black',Impact,sans-serif;--body:'Inter Tight','Segoe UI',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,Consolas,monospace}
 *{box-sizing:border-box}
 html,body{margin:0;overflow-x:clip}
 body{background:var(--bg);color:var(--navy);font-family:var(--body);font-size:18px;line-height:1.55}
@@ -23,9 +23,20 @@ img{max-width:100%;display:block}
 .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
 header.top{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;max-width:1040px;margin:0 auto}
 header.top img{height:44px;width:auto}
-.btn{display:inline-block;background:var(--blue);color:#fff;text-decoration:none;font-weight:700;padding:16px 26px;border-radius:999px;font-size:18px;box-shadow:0 6px 18px rgba(24,119,210,.3)}
-.btn:hover{background:#0f63b5}
-.btn.small{padding:10px 18px;font-size:15px;box-shadow:none}
+html{scroll-behavior:smooth}
+.btn{display:inline-block;background:var(--cta);color:#fff;text-decoration:none;font-weight:800;padding:18px 30px;border-radius:999px;font-size:19px;letter-spacing:.01em;box-shadow:0 8px 22px rgba(234,88,12,.38);border:2px solid transparent;transition:transform .15s ease,background .15s ease}
+.btn:after{content:" →"}
+.btn:hover{background:var(--cta-dark);transform:translateY(-2px)}
+.btn.small{padding:10px 18px;font-size:15px;box-shadow:0 4px 12px rgba(234,88,12,.3)}
+.btn.small:after{content:""}
+.btn.big{font-size:clamp(20px,3.4vw,24px);padding:22px 38px}
+.btn.on-dark{box-shadow:0 8px 22px rgba(0,0,0,.35)}
+.cta-band{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.cta-band .note{font-size:15px;color:var(--muted)}
+.story .cta-band .note{color:#c9d4e3}
+@keyframes nudge{0%,100%{box-shadow:0 8px 22px rgba(234,88,12,.38)}50%{box-shadow:0 8px 30px rgba(234,88,12,.7)}}
+.hero .btn.big{animation:nudge 2.4s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){.hero .btn.big{animation:none}.btn{transition:none}html{scroll-behavior:auto}}
 .kicker{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin:0 0 10px}
 h1,h2,h3{font-family:var(--display);line-height:1.08;margin:0 0 14px}
 h1{font-size:clamp(2.1rem,6vw,3.6rem)}
@@ -64,8 +75,11 @@ details p{margin:10px 0 0;color:#20385e}
 #book{background:#fff;border-top:1px solid var(--rule)}
 .calendly-inline-widget{min-width:300px;height:760px;border-radius:14px;overflow:hidden}
 footer{padding:28px 20px;text-align:center;font-size:14px;color:var(--muted)}
-.sticky{position:fixed;left:0;right:0;bottom:0;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);border-top:1px solid var(--rule);display:none;justify-content:center;z-index:20}
-@media (max-width:700px){.sticky{display:flex}body{padding-bottom:76px}section{padding:44px 0}.calendly-inline-widget{height:1000px}}
+.sticky{position:fixed;left:0;right:0;bottom:0;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid var(--rule);display:flex;justify-content:center;z-index:20;box-shadow:0 -6px 18px rgba(11,42,85,.1);transition:transform .2s ease}
+.sticky.hide{transform:translateY(120%)}
+.sticky .btn{max-width:520px}
+body{padding-bottom:84px}
+@media (max-width:700px){section{padding:44px 0}.calendly-inline-widget{height:1000px}.hero .btn.big{display:block;text-align:center;width:100%}.cta-band .btn{display:block;width:100%;text-align:center}}
 </style>
 </head>
 <body>
@@ -81,8 +95,8 @@ footer{padding:28px 20px;text-align:center;font-size:14px;color:var(--muted)}
     <h1>I'm a contractor. I spent months figuring out the system that runs my companies. Now I'll set it up for you.</h1>
     <p class="lead">Website with online booking, AI that answers your phone, and follow-up texts and emails that go out on their own. My contracting companies run on it every day, like a well-oiled machine.</p>
     <div class="cta-row">
-      <a class="btn" href="#book">Book a free 30-minute call</a>
-      <span class="note">On Zoom · Evenings 4–8 PM Eastern · 7 days a week</span>
+      <a class="btn big" href="#book">Book a Free Call</a>
+      <span class="note"><b>Free · 30 minutes · No pressure.</b><br>On Zoom · Evenings 4–8 PM Eastern · 7 days a week</span>
     </div>
   </div>
 </section>
@@ -96,6 +110,7 @@ footer{padding:28px 20px;text-align:center;font-size:14px;color:var(--muted)}
       <div class="card"><h3>Leads that go cold</h3><p>You send the estimate, then life gets busy. No follow-up, no job.</p></div>
       <div class="card"><h3>Too many apps</h3><p>A website here, a CRM there, an answering service that doesn't know your business. Nothing talks to each other.</p></div>
     </div>
+    <div class="cta-band"><a class="btn" href="#book">Book a Free Call</a><span class="note">I'll show you how I fixed all three.</span></div>
   </div>
 </section>
 
@@ -110,6 +125,7 @@ footer{padding:28px 20px;text-align:center;font-size:14px;color:var(--muted)}
       <div class="stat"><b>24/7</b><span>AI answers our business line and books callers</span></div>
       <div class="stat"><b>0</b><span>leads typed in by hand. They flow in automatically.</span></div>
     </div>
+    <div class="cta-band"><a class="btn on-dark" href="#book">Book a Free Call</a><span class="note">Talk contractor to contractor.</span></div>
   </div>
 </section>
 
@@ -131,7 +147,7 @@ footer{padding:28px 20px;text-align:center;font-size:14px;color:var(--muted)}
         <p><b>Visit the site →</b></p>
       </a>
     </div>
-    <p style="margin-top:18px;color:var(--muted)">On the call I'll walk you through both, live.</p>
+    <div class="cta-band"><a class="btn" href="#book">Book a Free Call</a><span class="note">On the call I'll walk you through both, live.</span></div>
   </div>
 </section>
 
@@ -176,7 +192,7 @@ footer{padding:28px 20px;text-align:center;font-size:14px;color:var(--muted)}
         <li><b>Upgrade to the full system within 6 months:</b> get a $500 credit toward the higher plan's setup, plus 50% off its monthly price</li>
         <li>No long-term contract</li>
       </ul>
-      <p style="margin-top:22px"><a class="btn" href="#book">Book my free call</a></p>
+      <p style="margin-top:22px"><a class="btn big" href="#book">Book a Free Call</a></p>
     </div>
   </div>
 </section>
@@ -190,6 +206,7 @@ footer{padding:28px 20px;text-align:center;font-size:14px;color:var(--muted)}
       <div class="card"><p class="num">02 / Build</p><h3>We build it</h3><p>You send your photos and logo. We build your site and send a preview link.</p></div>
       <div class="card"><p class="num">03 / Go live</p><h3>Leads start coming in</h3><p>Everything is tested on a phone before it goes live. Need a change later? Text it in.</p></div>
     </div>
+    <div class="cta-band"><a class="btn" href="#book">Book a Free Call</a><span class="note">Step 1 takes 30 minutes.</span></div>
   </div>
 </section>
 
@@ -203,6 +220,7 @@ footer{padding:28px 20px;text-align:center;font-size:14px;color:var(--muted)}
     <details><summary>I already have a website. Can I still do this?</summary><p>Yes. We can rebuild it so it actually books jobs, and move your domain over for you.</p></details>
     <details><summary>What do I need to get started?</summary><p>Your logo if you have one, some photos of your best jobs, and the services and towns you cover. That's it.</p></details>
     <details><summary>When can I book a call?</summary><p>Evenings, 4 to 8 PM Eastern, 7 days a week, so you can talk after work.</p></details>
+    <div class="cta-band"><a class="btn" href="#book">Book a Free Call</a></div>
   </div>
 </section>
 
@@ -220,8 +238,15 @@ footer{padding:28px 20px;text-align:center;font-size:14px;color:var(--muted)}
   © Digital Foreman · A service of Simply Crafted Construction LLC · Myrtle Beach, SC · <a href="/privacy.html">Privacy</a>
 </footer>
 
-<div class="sticky"><a class="btn" href="#book" style="width:100%;text-align:center">Book a free call</a></div>
+<div class="sticky" id="stickyCta"><a class="btn" href="#book" style="width:100%;text-align:center">Book a Free Call</a></div>
 
+<script>
+(function(){
+  var bar=document.getElementById('stickyCta'),book=document.getElementById('book');
+  if(!bar||!book||!('IntersectionObserver' in window))return;
+  new IntersectionObserver(function(e){bar.classList.toggle('hide',e[0].isIntersecting);},{threshold:0.15}).observe(book);
+})();
+</script>
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>
