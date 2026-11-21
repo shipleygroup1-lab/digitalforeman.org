@@ -80,6 +80,16 @@ footer{padding:28px 20px;text-align:center;font-size:14px;color:var(--muted)}
 .sticky .btn{max-width:520px}
 body{padding-bottom:84px}
 @media (max-width:700px){section{padding:44px 0}.calendly-inline-widget{height:1000px}.hero .btn.big{display:block;text-align:center;width:100%}.cta-band .btn{display:block;width:100%;text-align:center}}
+.textme{border:3px solid var(--cta);border-radius:20px;padding:24px;margin:0 0 34px;background:#FFF7F1}
+.textme h3{font-size:1.5rem;margin-bottom:6px}
+.textme p.sub{margin:0 0 16px;color:#20385e}
+.textme form{display:grid;gap:12px}
+.textme label{display:grid;gap:4px;font-weight:700;font-size:16px}
+.textme input{font:inherit;font-size:17px;padding:13px 14px;border:1px solid var(--rule);border-radius:10px;background:#fff;color:var(--navy);width:100%}
+.textme button{font:inherit;font-weight:800;font-size:19px;cursor:pointer;width:100%;text-align:center}
+.textme .consent{font-size:12px;line-height:1.45;color:var(--muted);margin:0}
+.or{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:center;margin:0 0 18px}
+@media (min-width:701px){.textme form{grid-template-columns:1fr 1fr 1fr}.textme .full{grid-column:1/-1}}
 </style>
 </head>
 <body>
@@ -98,6 +108,7 @@ body{padding-bottom:84px}
       <a class="btn big" href="#book">Book a Free Call</a>
       <span class="note"><b>Free · 30 minutes · No pressure.</b><br>On Zoom · Evenings 4–8 PM Eastern · 7 days a week</span>
     </div>
+    <p style="margin:16px 0 0;font-size:16px"><a href="#textme" style="font-weight:700">Not ready to book? Leave your number and I'll text you.</a></p>
   </div>
 </section>
 
@@ -226,6 +237,24 @@ body{padding-bottom:84px}
 
 <section id="book">
   <div class="wrap">
+    <div class="textme" id="textme">
+      <h3>Not ready to book? I'll text you.</h3>
+      <p class="sub">Leave your name and number. I'll text you back today, contractor to contractor. No pressure.</p>
+      <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="a8bd8087-d9c3-45ed-81a1-c68302d9fceb">
+        <input type="hidden" name="subject" value="TEXT ME request - Book a Call page - Digital Foreman">
+        <input type="hidden" name="from_name" value="Digital Foreman book page">
+        <input type="hidden" name="source" value="digitalforeman.org/book - Text me form">
+        <input type="hidden" name="redirect" value="https://digitalforeman.org/thanks.html">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <label for="t-name">Your name<input id="t-name" name="name" autocomplete="name" required></label>
+        <label for="t-phone">Cell phone<input id="t-phone" name="phone" type="tel" autocomplete="tel" required></label>
+        <label for="t-trade">What kind of work do you do?<input id="t-trade" name="trade" placeholder="Roofing, painting, HVAC..." required></label>
+        <button class="btn full" type="submit">Text me</button>
+        <p class="consent full">By submitting this form, you agree that Simply Crafted Construction LLC may call and text you at the number you provided about your request, including with automated technology and an AI-generated voice. Consent is not required to make a purchase. Message and data rates may apply. Reply STOP to opt out of texts, or tell us on any call to stop calling.</p>
+      </form>
+    </div>
+    <p class="or">Or book a time now</p>
     <p class="kicker">Book your call</p>
     <h2>Pick a time that works for you</h2>
     <p style="color:var(--muted)">30 minutes on Zoom. The link comes in your confirmation email.</p>
