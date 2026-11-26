@@ -16,8 +16,8 @@
 <link rel="icon" type="image/png" href="images/df-hat.png">
 <link rel="stylesheet" href="/fonts/fonts.css">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Run your contracting business like a well-oiled machine">
-<meta property="og:description" content="Free website with a Book Now button when you sign up on the call. $59/month, locked for a year.">
+<meta property="og:title" content="For contractors: every lead gets a text back in seconds">
+<meta property="og:description" content="Built by a Myrtle Beach contractor. Book a free 30-minute call and see the follow-up system that runs my companies.">
 <meta property="og:url" content="https://digitalforeman.org/book">
 <meta property="og:image" content="https://digitalforeman.org/images/df-logo-cutout.png">
 <style>
@@ -112,13 +112,42 @@ body{padding-bottom:84px}
   <div class="wrap">
     <p class="kicker">Built by a contractor, for contractors</p>
     <p class="spots"><b>Founding price:</b> only 50 contractors. <b>49 spots left.</b></p>
-    <h1>Free website with a Book Now button. Then $59/month, locked for a year.</h1>
-    <p class="lead">I'm a contractor. I wasted hundreds of hours and a couple thousand dollars on web guys and software that didn't get how a contractor works. So I built the system myself: a website that books jobs, AI that answers your phone, and follow-up texts that go out on their own. Now I'll set it up for you.</p>
+    <h1>For contractors: every lead gets a text back in seconds. The follow-up runs on its own.</h1>
+    <p class="lead">I'm a contractor in Myrtle Beach. I looked at my own CRM: only 3 of 145 proposals ever told me no. The rest just went quiet. I called my 8 biggest and won 6 jobs, $19,673, in one week. Now the follow-up runs on its own, so I'm not answering leads at 9 PM. I'll set the same system up for you.</p>
     <div class="cta-row">
-      <a class="btn big" href="#book">Book a Free Call</a>
+      <a class="btn big" href="#book">Pick a Time Below</a>
       <span class="note"><b>Free · 30 minutes · No pressure.</b><br>On Zoom · Evenings 4–8 PM Eastern · 7 days a week</span>
     </div>
     <p style="margin:16px 0 0;font-size:16px"><a href="#textme" style="font-weight:700">Not ready to book? Leave your number and I'll text you.</a></p>
+  </div>
+</section>
+
+<section id="book">
+  <div class="wrap">
+    <p class="kicker">Book your call</p>
+    <h2>Pick a time that works for you</h2>
+    <p style="color:var(--muted)">30 minutes on Zoom. The link comes in your confirmation email.</p>
+    <div class="calendly-inline-widget" data-url="https://calendly.com/shipleygroup1/30min?hide_gdpr_banner=1&primary_color=1877d2"></div>
+    <p style="font-size:15px;color:var(--muted)">Calendar not loading? <a href="https://calendly.com/shipleygroup1/30min" target="_blank" rel="noopener">Open the booking page</a> or email <a href="mailto:info@digitalforeman.org">info@digitalforeman.org</a>.</p>
+  
+    <p class="or" style="margin-top:28px">Not ready to pick a time?</p>
+    <div class="textme" id="textme">
+      <h3>Not ready to book? I'll text you.</h3>
+      <p class="sub">Leave your name and number. I'll text you back today, contractor to contractor. No pressure.</p>
+      <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="a8bd8087-d9c3-45ed-81a1-c68302d9fceb">
+        <input type="hidden" name="subject" value="TEXT ME request - Book a Call page - Digital Foreman">
+        <input type="hidden" name="from_name" value="Digital Foreman book page">
+        <input type="hidden" name="source" value="digitalforeman.org/book - Text me form">
+        <input type="hidden" name="redirect" value="https://digitalforeman.org/thanks.html">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <label for="t-name">Your name<input id="t-name" name="name" autocomplete="name" required></label>
+        <label for="t-phone">Cell phone<input id="t-phone" name="phone" type="tel" autocomplete="tel" required></label>
+        <label for="t-trade">What kind of work do you do?<input id="t-trade" name="trade" placeholder="Roofing, painting, HVAC..." required></label>
+        <button class="btn full" type="submit">Text me</button>
+        <p class="consent full">By submitting this form, you agree that Simply Crafted Construction LLC may call and text you at the number you provided about your request, including with automated technology and an AI-generated voice. Consent is not required to make a purchase. Message and data rates may apply. Reply STOP to opt out of texts, or tell us on any call to stop calling.</p>
+      </form>
+    </div>
   </div>
 </section>
 
@@ -245,33 +274,7 @@ body{padding-bottom:84px}
   </div>
 </section>
 
-<section id="book">
-  <div class="wrap">
-    <div class="textme" id="textme">
-      <h3>Not ready to book? I'll text you.</h3>
-      <p class="sub">Leave your name and number. I'll text you back today, contractor to contractor. No pressure.</p>
-      <form action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" value="a8bd8087-d9c3-45ed-81a1-c68302d9fceb">
-        <input type="hidden" name="subject" value="TEXT ME request - Book a Call page - Digital Foreman">
-        <input type="hidden" name="from_name" value="Digital Foreman book page">
-        <input type="hidden" name="source" value="digitalforeman.org/book - Text me form">
-        <input type="hidden" name="redirect" value="https://digitalforeman.org/thanks.html">
-        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-        <label for="t-name">Your name<input id="t-name" name="name" autocomplete="name" required></label>
-        <label for="t-phone">Cell phone<input id="t-phone" name="phone" type="tel" autocomplete="tel" required></label>
-        <label for="t-trade">What kind of work do you do?<input id="t-trade" name="trade" placeholder="Roofing, painting, HVAC..." required></label>
-        <button class="btn full" type="submit">Text me</button>
-        <p class="consent full">By submitting this form, you agree that Simply Crafted Construction LLC may call and text you at the number you provided about your request, including with automated technology and an AI-generated voice. Consent is not required to make a purchase. Message and data rates may apply. Reply STOP to opt out of texts, or tell us on any call to stop calling.</p>
-      </form>
-    </div>
-    <p class="or">Or book a time now</p>
-    <p class="kicker">Book your call</p>
-    <h2>Pick a time that works for you</h2>
-    <p style="color:var(--muted)">30 minutes on Zoom. The link comes in your confirmation email.</p>
-    <div class="calendly-inline-widget" data-url="https://calendly.com/shipleygroup1/30min?hide_gdpr_banner=1&primary_color=1877d2"></div>
-    <p style="font-size:15px;color:var(--muted)">Calendar not loading? <a href="https://calendly.com/shipleygroup1/30min" target="_blank" rel="noopener">Open the booking page</a> or email <a href="mailto:info@digitalforeman.org">info@digitalforeman.org</a>.</p>
-  </div>
-</section>
+
 
 <footer>
   © Digital Foreman · A service of Simply Crafted Construction LLC · Myrtle Beach, SC · <a href="/privacy.html">Privacy</a>
