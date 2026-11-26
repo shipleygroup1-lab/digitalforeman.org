@@ -8,6 +8,13 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 </script>
+<!-- Meta Pixel (Digital Foreman Website) -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1145607248442478');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1145607248442478&ev=PageView&noscript=1" alt=""></noscript>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Book a Call | Digital Foreman</title>
@@ -287,6 +294,16 @@ body{padding-bottom:84px}
   var bar=document.getElementById('stickyCta'),book=document.getElementById('book');
   if(!bar||!book||!('IntersectionObserver' in window))return;
   new IntersectionObserver(function(e){bar.classList.toggle('hide',e[0].isIntersecting);},{threshold:0.15}).observe(book);
+})();
+</script>
+<script>
+// Meta events: "Text me" form = Lead, Calendly booking = Schedule
+(function(){
+  var f=document.querySelector('#textme form');
+  if(f) f.addEventListener('submit',function(){ if(window.fbq) fbq('track','Lead',{content_name:'Text me form'}); });
+  window.addEventListener('message',function(e){
+    if(e.origin==='https://calendly.com' && e.data && e.data.event==='calendly.event_scheduled' && window.fbq){ fbq('track','Schedule',{content_name:'Calendly 30min'}); }
+  });
 })();
 </script>
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
